@@ -1,0 +1,124 @@
+body,html{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.list-title{
+	width: 94%;
+	height: 60px;
+	line-height: 60px;
+	padding:0 3%;
+	z-index: 7;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+.Icon{
+	width: 30px;
+	height: 50px;
+	float: right;
+	text-align: center;
+	animation:myfirst 4s;
+	animation-iteration-count:infinite;
+}
+@keyframes myfirst{
+	0%{opacity: 1;}
+	50%{opacity: 0;}
+	100%{opacity: 1;}
+}
+.rank{
+	width: 100%;
+	height: auto;
+	margin-top: 62px;
+	overflow: hidden;
+}
+.rank-kind{
+	width: 20%;
+	height: auto;
+	position: fixed;
+	float: left;
+}
+.aa{
+	width: 100%;
+	font-size: 12px;
+	font-weight: bold;
+	height: 35px;
+	background-color: #F0F0F0;
+	border-bottom: solid 1px gainsboro;
+	text-align: center;
+	line-height: 30px;
+}
+.chaked{
+	background-color: white;
+	border-left: solid 3px red;
+	box-shadow: 5px 0 0 0 rgba(0, 0, 0, 0.2);
+}
+.rank-list{
+	width: 80%;
+	height: auto;
+	float: right;
+}
+.rank-list>div{
+	width: 94%;
+	height: 60px;
+	padding: 3%;
+	line-height: 40px;
+	border-left: solid 1px gainsboro;
+	border-bottom: solid 1px gainsboro;
+	position: relative;
+}
+.number{
+	width: 10%;
+    height: 50px;
+    margin: 2%;
+    border-radius: 30px;
+    background-color: white;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+}
+.rank-img{
+	width: 23%;
+	height: 60px;
+	float: left;
+}
+.rank-img>img{
+	width: 100%;
+	height: 100%;
+	border-radius: 10%;
+}
+.rank-text{
+	width: 60%;
+	height: 60px;
+	padding-left: 3%;
+	float: left;
+	line-height: 15px;
+}
+.rank-text-title{
+	font-size: 14px;
+}
+.rank-text-keywords{
+	font-size: 12px;
+	color: gray;
+}
+.rank-text-number{
+	font-size: 10px;
+	color: gray;
+}
+.rank-text-money{
+	width:auto;
+	height: 30px;
+	color: red;
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+	line-height: 30px;
+	text-align: right;
+	font-size: 12px;
+}

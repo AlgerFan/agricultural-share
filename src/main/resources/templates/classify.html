@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>商品分类管理</title>
+		<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/classify.css}" />
+		<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+		<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+		<script type="text/javascript" th:src="@{/js/classify.js}"></script>
+	</head>
+	<body>
+		<div class="list-title">
+			<a th:href="@{/adminindex}">
+				<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;分类管理
+			</a>
+			<div class="Icon">
+				<i class="fa fa-power-off"></i>
+			</div>
+		</div>
+		<div class="top">
+            <form th:action="@{/admin/category/search}"  method="post">
+                <div class="top-sech">
+                    <input name="keyWord" placeholder="请输入搜索的内容" />
+                    <i class="top-searchs fa fa-search "></i>
+                    <input type="submit" class="search" style="display: none">
+                </div>
+            </form>
+		</div>
+		<div class="searchback none"></div>
+		<div class="allcoms">
+			<div class="allcomdat">
+				<div class="comname" style="font-weight: bold;font-size: 15px;">商品名称</div>
+				<div class="comlast" style="font-weight: bold;font-size: 15px;">上级分类</div>
+				<div class="change">
+				</div>
+			</div>
+			<div class="allcomdat" th:each="cate : ${categories}">
+				<div class="comname" th:text="${cate.categoryName}">拖拉机</div>
+				<div class="comlast" th:text="${cate.parentName}" th:if="${cate.parentName != 0}">农机</div>
+                <div class="comlast" th:text="" th:if="${cate.parentName == 0}">农机</div>
+				<div class="change">
+                    <div class="none" style="display: none;" th:text="${cate.categoryId}"></div>
+                    <a th:href="@{/admin/category/toOneUpdate(categoryId=${cate.categoryId})}" th:if="${cate.parentId == 0}"><div class="cheng">修改</div></a>
+                    <a th:href="@{/admin/category/toTwoUpdate(categoryId=${cate.categoryId})}" th:if="${cate.parentId != 0}"><div class="cheng">修改</div></a>
+					<input class="category" type="text" th:value="${cate.categoryId}" style="display: none;">
+					<div class="del">删除</div>
+				</div>
+			</div>
+            <div class="fenye" th:if="${TotalPages > 0}">
+                <ul class="pagination" th:if="${Number == 1} and ${TotalPages > 1}">
+                    <!--//如果当前页等于1，总页数大于1（不显示上一页）   Number&ndash;&gt;当前页-->
+                    <li><a th:href="@{/admin/category/productCategoryList(page=1)}">首页</a></li>
+                    <li th:each="i:${#numbers.sequence(1,TotalPages)}">
+                        <!--//从1到总页数遍历，并赋值给i    TotalPages&ndash;&gt;总页数-->
+                        <a  class="active" th:if="${i > Number -3} and ${i < Number+3} and ${i == Number}" href="javascript:void(0);" th:text="${i}">#</a>
+                        <!--//限制显示页数的条数  4到6个页数   而且等于当前页，不能点击-->
+                        <a th:if="${i > Number -3} and ${i < Number+3} and ${i != Number}"
+                           th:href="@{/admin/category/productCategoryList(page=${i})}" th:text="${i}"
+                           style="color: #337ab7;background-color: #fff;border-color: #fff;">#</a><!--//限制显示页数的条数  4到6个页数-->
+                </li>
+                    <li><a th:href="@{/admin/category/productCategoryList(page=${TotalPages})}">尾页</a></li><!--//跳转至第Number页-->
+                </ul>
+                <ul class="pagination" th:if="${Number > 1} and ${TotalPages > 1}"><!--//显示上一页-->
+                    <li><a th:href="@{/admin/category/productCategoryList(page=1)}">首页</a></li><!--//跳转至第一页-->
+                    <li th:each="i:${#numbers.sequence(1,TotalPages)}">
+                        <!--//从1到总页数遍历，并赋值给i    TotalPages&ndash;&gt;总页数-->
+                        <a   class="active" th:if="${i > Number -3} and ${i < Number+3} and ${i == Number}" href="javascript:void(0);" th:text="${i}">#</a>
+                        <!--//限制显示页数的条数  4到6个页数   而且等于当前页，不能点击-->
+                        <a th:if="${i > Number -3 } and ${i < Number+3} and ${i != Number}"
+                           th:href="@{/admin/category/productCategoryList(page=${i})}" th:text="${i}"
+                           style="color: #337ab7;background-color: #fff;border-color: #fff;">#</a><!--//限制显示页数的条数  4到6个页数-->
+                    </li>
+                    <li><a th:href="@{/admin/category/productCategoryList(page=${TotalPages})}">尾页</a></li>
+                </ul>
+            </div>
+        </div>
+		<div class="user-a">
+			<div class="user-add">
+				<span>十</span>
+			</div>
+			<div class="add0">
+				<a th:href="@{/admin/category/toAddTwoCategory}"><span>二级分类</span></a>
+			</div>
+			<div class="add1">
+				<a th:href="@{/admin/category/toAddOneCategory}"><span>一级分类</span></a>
+			</div>
+			<div class="user-search">
+				<i class="fa fa-search"></i>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,140 @@
+body,html{
+	margin: 0;
+	padding: 0;
+	background-color: #FAFAFA;
+}
+.list-title{
+	width: 94%;
+	height: 60px;
+	line-height: 60px;
+	padding:0 3%;
+	z-index: 7;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.Icon{
+	width: 30px;
+	height: 50px;
+	float: right;
+	text-align: center;
+}
+.allcoll{
+	width: 100%;
+	height: auto;
+	margin-top: 60px;
+}
+.allcoll>div{
+	width: 100%;
+	height: 120px;
+	border-bottom:solid 1px gray;
+	position: relative;
+}
+.allcoll>div{
+	width: 100%;
+	height: 120px;
+	border-bottom: solid 1px #f3f3f3;
+	position: relative;
+}
+.all-img{
+    width: 35%;
+    height: 90px;
+    padding: 15px 5%;
+    float: left;
+}
+.all-img>img{
+	width: 100%;
+	height: 100%;
+}
+.all-text{
+	width: 55%;
+	height: 90px;
+	padding: 15px 0;
+	float: left;
+}
+.goods-right{
+	width: 55%;
+	height: 90px;
+	padding: 15px 0;
+	float: left;
+}
+.goods-title{
+	width: 100%;
+    height: 27px;
+    line-height: 27px;
+    color: black;
+    font-size: 15px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.goods-keywords{
+	width: 100%;
+	color:gray;
+    font-size: 10px;
+    height: 17px;
+    line-height: 17px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.goods-money{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	color: red;
+	font-size: 15px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.goods-time{
+	font-size: 10px;
+	color:lightgray;
+}
+.goods-cz{
+	width: 32px;
+    height: 16px;
+    text-align: center;
+    line-height: 15px;
+    position: absolute;
+    right: 5px;
+    bottom: 20px;
+    font-size: 16px;
+    color: gray;
+    border-radius: 25px;
+}
+.goods-phone1{
+	width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    position: absolute;
+    right: 5px;
+    bottom: 41px;
+    font-size: 16px;
+    color: #E66B14;
+    border: solid 1px #E66B14;
+    border-radius: 25px;
+    display: none;
+}
+.goods-phone2 {
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	line-height: 22px;
+	position: absolute;
+	right: 5px;
+	bottom: 75px;
+	font-size: 16px;
+	color: #E66B14;
+	display: none;
+	border: solid 1px #E66B14;
+	border-radius: 25px;
+}

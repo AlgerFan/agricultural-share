@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>后台用户管理</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/font-awesome-4.7.0/css/font-awesome.css}" />
+    <link rel="stylesheet" th:href="@{/css/finduser.css}" />
+</head>
+
+<body>
+<div class="list-title">
+    <a th:href="@{/admin/user/adminUserList}">
+        <i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;返回首页
+    </a>
+</div>
+<div class="top">
+    <div class="top-sech">
+        <form th:action="@{/admin/user/findUserList}" method="Get">
+            <input class="finduser" name="keyWord" placeholder="请输入搜索的内容" />
+            <i class="top-searchs fa fa-search"></i>
+            <input type="submit" style="display: none" class="upfind">
+        </form>
+    </div>
+</div>
+<div class="table ">
+    <div class="table-manage " th:each="users:${users}">
+        <div class="manage-sign ">
+            <div class="manage-sign-left ">
+                <img class="userimg" th:src="'/Path'+ ${users.userAvatar}">
+            </div>
+            <div class="manage-sign-right ">
+                <span class="sign-right-text1 username" th:text="${users.userName}">瓜皮</span>
+                <span class="sign-right-text2 userphone " th:text="${users.userPhone}">158****9775</span>
+                <i class="sign-font fa fa-navicon "></i>
+                <input type="hidden" class="userid" th:value="${users.userId}">
+                <input type="hidden" class="userpass" th:value="${users.userPassword}">
+                <input type="hidden" class="userrole" th:value="${users.userRole}">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modi">
+    <div class="modi-header">
+        <div class="header-title">
+            <a href="javascript:;">
+                <i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;返回
+            </a>
+        </div>
+        <div class="header-infor">
+            <div class="inforPho">
+                <div class="inforPhoLeft">
+                    <span>头&nbsp;&nbsp;&nbsp;像:</span>
+                </div>
+                <div class="inforPhoRight">
+                    <img src="" id="imgshow"/>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <input id="fileds" style="display: none;" name="imgfile" type="file" accept="image/*" value="上传图片" />
+
+            <div class="infor">
+                <div class="inforLeft">
+                    <span>昵&nbsp;&nbsp;&nbsp;称:</span>
+                </div>
+                <div class="inforRight">
+                    <input class="userName" value="sunshine "/>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="infor">
+                <div class="inforLeft">
+                    <span>手机号:</span>
+                </div>
+                <div class="inforRight">
+                    <input class="userPhone" maxlength="11" value="15903095521"/>
+                </div>
+                <div class="clear "></div>
+            </div>
+            <div class="infor">
+                <div class="inforLeft">
+                    <span>密码:</span>
+                </div>
+                <div class="inforRight">
+                    <input class="userPass" maxlength="16" value="4545454545521" />
+                </div>
+                <div class="clear "></div>
+            </div>
+            <div class="infor">
+                <div class="inforLeft">
+                    <span>角色:</span>
+                </div>
+                <div class="inforRight">
+                    <select class="userRole">
+                        <option value="1">管理员</option>
+                        <option value="0">普通用户</option>
+                    </select>
+                </div>
+                <div class="clear "></div>
+            </div>
+            <input type="hidden" class="userId">
+            <span class="block" style="width:80% ;margin:5px auto;color: #999;font-size: 12px;">管理员可直接在每一项上进行更改,并确认保存。</span>
+        </div>
+        <div class="yesgen none"></div>
+        <div class="yesgenback none"></div>
+        <div class="userFooter">
+            <div class="userFooter-list">
+                <div class="list list-left">
+                    确认更改
+                </div>
+                <div class="list list-right">
+                    删除
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="fenye" th:if="${TotalPages > 0}">
+    <ul class="pagination" th:if="${Number == 1} and ${TotalPages > 1}">
+        <!--//如果当前页等于1，总页数大于1（不显示上一页）   Number&ndash;&gt;当前页-->
+        <li><a th:href="@{/admin/user/findUserList(page=1)}">首页</a></li>
+        <li th:each="i:${#numbers.sequence(1,TotalPages)}">
+            <!--//从1到总页数遍历，并赋值给i    TotalPages&ndash;&gt;总页数-->
+            <a  class="active" th:if="${i > Number -3} and ${i < Number+3} and ${i == Number}" href="javascript:void(0);" th:text="${i}">#</a>
+            <!--//限制显示页数的条数  4到6个页数   而且等于当前页，不能点击-->
+            <a th:if="${i > Number -3} and ${i < Number+3} and ${i != Number}"
+               th:href="@{/admin/user/findUserList(page=${i})}" th:text="${i}"
+               style="color: #337ab7;background-color: #fff;border-color: #fff;">#</a><!--//限制显示页数的条数  4到6个页数-->
+        </li>
+        <li><a th:href="@{/admin/user/findUserList(page=${TotalPages})}">尾页</a></li><!--//跳转至第Number页-->
+    </ul>
+
+    <ul class="pagination" th:if="${Number > 1} and ${TotalPages > 1}"><!--//显示上一页-->
+        <li><a th:href="@{/admin/user/findUserList(page=1)}">首页</a></li><!--//跳转至第一页-->
+        <li th:each="i:${#numbers.sequence(1,TotalPages)}">
+            <!--//从1到总页数遍历，并赋值给i    TotalPages&ndash;&gt;总页数-->
+            <a   class="active" th:if="${i > Number -3} and ${i < Number+3} and ${i == Number}" href="javascript:void(0);" th:text="${i}">#</a>
+            <!--//限制显示页数的条数  4到6个页数   而且等于当前页，不能点击-->
+            <a th:if="${i > Number -3 } and ${i < Number+3} and ${i != Number}"
+               th:href="@{/admin/user/findUserList(page=${i})}" th:text="${i}"
+               style="color: #337ab7;background-color: #fff;border-color: #fff;">#</a><!--//限制显示页数的条数  4到6个页数-->
+        </li>
+        <li><a th:href="@{/admin/user/findUserList(page=${TotalPages})}">尾页</a></li><!--//跳转至第Number页-->
+    </ul>
+</div>
+<div class="user-a ">
+    <div class="user-add ">
+        <a th:href="@{/adduser}">
+            <span>十</span>
+        </a>
+    </div>
+    <div class="user-search ">
+        <i class="fa fa-search "></i>
+    </div>
+</div>
+<div class="searchback none "></div>
+<script type="text/javascript " th:src="@{/js/jquery-2.1.0.js} " ></script>
+<script type="text/javascript " th:src="@{/js/finduser.js}" ></script>
+</body>
+
+</html>

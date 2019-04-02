@@ -1,0 +1,148 @@
+body {
+    width: 100%;
+    font-family:微软雅黑;
+    margin:0px;
+    overflow:scroll;
+    background-color: #F3F3F3;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    outline: 0;
+}
+a:hover{ text-decoration: none;}
+ul li{list-style-type: none;}
+input{ outline: none;}
+.none{ display: none;}
+.block{display: block;}
+.top{
+	width: 100%;
+	height: 60px;
+	background-color: #fff;
+}
+.top-up{
+	margin-left:10px;
+	line-height: 60px;
+	float: left;
+	clear: all;
+}
+.container{
+	width: 100%;
+	padding: 0px;
+}
+.carousel-inner>.item>img{
+	width: 100%;
+	height: 180px;
+}
+.topname{
+	min-height: 80px;
+	padding: 10px 15px;
+	position: relative;
+	background-color: #fff;
+}
+.topname h3{
+	margin: 0px 0px 15px;
+	font-size: 20px
+}
+.topname .nametime{
+	font-size: 12px;
+	float: left;
+}
+.topname .namenum{
+	float: right;
+	font-size: 12px
+}
+.clear{
+	clear: both;
+}
+.table{
+	margin-top: 8px;
+	background-color: #fff;
+}
+.table-form{
+	width: 90%;
+	margin: 0px auto;
+	height: 70px;
+	border-bottom: 1px solid #3c3c3c;
+}
+.table-form .table-form-s{
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+.table-form-s .form-s-top{
+	font-size: 13px;
+	text-align: center;
+	margin: 10px 0px;
+}
+.table-form-s .form-s-bottom{
+	color: #D43F3A;
+	font-size: 15px;
+	text-align: center;
+}
+.row {
+     margin-right:0px; 
+     margin-left:0px; 
+}
+.col-md-12{
+	padding-left:0px ;
+	padding-right: 0px;
+}
+.fass{
+	position: absolute;
+	top: 50%;
+}
+.form-parts{
+	width: 90%;
+	margin: 5px auto;
+	padding: 10px 0px;
+}
+.parts-left{
+	width: 50%;
+	margin: 5px 0px;
+	text-align: left;
+	font-size: 14px;
+	float: left;
+}
+.footer{
+	margin-top: 8px;
+	background-color: #fff;
+}
+.footer-form{
+	width: 90%;
+	margin: 0px auto;
+	height:40px;
+	border-bottom: 1px solid #3c3c3c;
+}
+.footer-form h4{
+	line-height: 40px;
+	font-size: 15px;
+}
+.footer-s{
+	width: 90%;
+	margin: 5px auto;
+	line-height: 50px;
+	font-size: 13px;
+	color: #999999;
+	margin-bottom: 50px;
+}
+.bot{
+	width: 100%;
+	height: 50px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: white;
+	border-top: solid 1px gainsboro;
+}
+.bot-d{
+	width: 80px;
+	height: 30px;
+	margin: 10px;
+	background-color: red;
+	float: right;
+	color: white;
+	border-radius: 10px;
+	text-align: center;
+	line-height: 30px;
+}

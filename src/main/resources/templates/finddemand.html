@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>需求管理</title>
+    <link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/finddemand.css}" />
+    <link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+    <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/js/finddemand.js}"></script>
+
+</head>
+
+<body>
+<div class="list-title">
+    <a th:href="@{/admin/findAllMessage}">
+        <i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;返回首页
+    </a>
+    <div class="Icon">
+        <i class="fa fa-power-off"></i>
+    </div>
+</div>
+<div class="allneed">
+    <div class="allneeds" th:each="message:${messages}">
+        <div class="name" th:text="${message.title}">北海情书</div>
+        <div class="address" th:text="${message.address}">新乡市红旗区河南科技学院</div>
+        <div class="phone" th:text="${message.phone}">182****0281</div>
+        <div class="need">需求：<span class="needs" th:text="${message.sonType}">挖掘机</span></div>
+        <input type="hidden" th:value="${message.messageId}">
+        <div class="deleteneed none">X</div>
+        <!--<div class="operate">-->
+            <!--<a href="./changeneeds.html"><div class="change">修改</div></a>-->
+            <!--<div class="delete">删除</div>-->
+        <!--</div>-->
+    </div>
+</div>
+<div class="fenye" th:if="${TotalPages > 0}">
+    <ul class="pagination" th:if="${Number == 1} and ${TotalPages > 1}">
+        <!--//如果当前页等于1，总页数大于1（不显示上一页）   Number&ndash;&gt;当前页-->
+        <li><a th:href="@{/admin/findMessages(page=1)}">首页</a></li>
+        <li th:each="i:${#numbers.sequence(1,TotalPages)}">
+            <!--//从1到总页数遍历，并赋值给i    TotalPages&ndash;&gt;总页数-->
+            <a  class="active" th:if="${i > Number -3} and ${i < Number+3} and ${i == Number}" href="javascript:void(0);" th:text="${i}">#</a>
+            <!--//限制显示页数的条数  4到6个页数   而且等于当前页，不能点击-->
+            <a th:if="${i > Number -3} and ${i < Number+3} and ${i != Number}"
+               th:href="@{/admin/findMessages(page=${i})}" th:text="${i}"
+               style="color: #337ab7;background-color: #fff;border-color: #fff;">#</a><!--//限制显示页数的条数  4到6个页数-->
+        </li>
+        <li><a th:href="@{/admin/findMessages(page=${TotalPages})}">尾页</a></li><!--//跳转至第Number页-->
+    </ul>
+
+    <ul class="pagination" th:if="${Number > 1} and ${TotalPages > 1}"><!--//显示上一页-->
+        <li><a th:href="@{/admin/findMessages(page=1)}">首页</a></li><!--//跳转至第一页-->
+        <li th:each="i:${#numbers.sequence(1,TotalPages)}">
+            <!--//从1到总页数遍历，并赋值给i    TotalPages&ndash;&gt;总页数-->
+            <a   class="active" th:if="${i > Number -3} and ${i < Number+3} and ${i == Number}" href="javascript:void(0);" th:text="${i}">#</a>
+            <!--//限制显示页数的条数  4到6个页数   而且等于当前页，不能点击-->
+            <a th:if="${i > Number -3 } and ${i < Number+3} and ${i != Number}"
+               th:href="@{/admin/findMessages(page=${i})}" th:text="${i}"
+               style="color: #337ab7;background-color: #fff;border-color: #fff;">#</a><!--//限制显示页数的条数  4到6个页数-->
+        </li>
+        <li><a th:href="@{/admin/findMessages(page=${TotalPages})}">尾页</a></li><!--//跳转至第Number页-->
+    </ul>
+</div>
+<div class="user-a">
+    <!--<a href="./addneeds.html">-->
+    <!--<div class="user-add">-->
+    <!--<span>十</span>-->
+    <!--</div>-->
+    <!--</a>-->
+    <div class="user-search">
+        <i class="fa fa-search"></i>
+    </div>
+</div>
+<div class="top">
+    <div class="top-sech">
+        <input placeholder="请输入搜索的内容" />
+        <i class="top-searchs fa fa-search"></i>
+    </div>
+</div>
+<div class="searchback none"></div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>用户登陆</title>
+		<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.css}" />
+		<link rel="stylesheet" th:href="@{/css/login.css}" />
+	</head>
+	<body>
+		<div class="list-title">
+			<a th:href="@{/index}">
+				<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;用户登录
+			</a>
+		</div>
+		<div class="top">
+			<div class="clear"></div>
+			<div class="loginpho">
+				<img th:src="@{/images/logo1.png}" />
+			</div>
+			<div class="loginname">
+				<div class="loginname-left">
+					<input class="phonenum" maxlength="11" placeholder="请输入手机号" />
+				</div>
+			</div>
+			<div class="loginnum">
+				<input class="userpassword" placeholder="请输入您的密码" type="password" maxlength="16" />
+                <div class="pointer"></div>
+			</div>
+			<div class="loginError"></div>
+			<div class="login">登录</div>
+            <div class="register">没有账号&nbsp;?&nbsp;立即<a th:href="@{/user/toRegistered}" style="color: red">注册</a></div>
+		</div>
+	</body>
+    <script th:src="@{/js/jquery.js}"></script>
+        <script th:src="@{/js/login.js}"></script>
+</html>

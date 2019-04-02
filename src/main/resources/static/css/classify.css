@@ -1,0 +1,251 @@
+body,
+html {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.block {
+	display: block;
+}
+
+.none {
+	display: none;
+}
+
+.list-title {
+	width: 94%;
+	height: 60px;
+	line-height: 60px;
+	padding: 0 3%;
+	z-index: 7;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+
+.Icon {
+	width: 30px;
+	height: 50px;
+	float: right;
+	text-align: center;
+	animation: myfirst 4s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes myfirst {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.allcoms {
+	width: 100%;
+	height: auto;
+	margin-top: 60px;
+	margin-bottom: 50px;
+}
+
+.allcomdat {
+	width: 94%;
+	height: 40px;
+	padding: 0 3%;
+	position: relative;
+	border-bottom: solid 1px #f3f3f3;
+}
+
+.comlast,
+.comname {
+	width: 35%;
+	height: 100%;
+	float: left;
+	line-height: 40px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.change {
+	width: 30%;
+	height: 100%;
+	float: left;
+	font-size: 10px;
+}
+
+.cheng,
+.del {
+	width: 27%;
+	height: 20px;
+	float: left;
+	color: red;
+	text-align: center;
+	line-height: 20px;
+	margin: 10px 10%;
+	border-radius: 7px;
+	/*border: solid 1px red;*/
+}
+
+
+/*用户添加*/
+
+.user-add {
+	width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #e2dddd;
+    box-shadow: 1px 5px 5px #f1be2e;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+}
+
+
+/*点击搜索*/
+
+.user-search {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 10px;
+    right: 56px;
+    border: 1px solid #e2dddd;
+    box-shadow: 1px 5px 5px #f1be2e;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.user-a {
+	position: fixed;
+	bottom: 0px;
+	height: 60px;
+	width: 100%;
+}
+
+.top {
+	margin-top: 20px;
+	width: 100%;
+	position: fixed;
+	top: 80px;
+	z-index: 101;
+}
+
+
+/*头部搜索*/
+
+.top-sech {
+	width: 0px;
+	margin: 0px auto;
+	height: 0px;
+	overflow: hidden;
+	border: 1px solid #e2dddd;
+	border-radius: 5px;
+	background-color: #fff;
+	box-shadow: 0px 5px 5px #e2dddd;
+	transition: all 0.5s;
+}
+
+.top-sech input {
+	padding-left: 20px;
+	display: inline-block;
+	vertical-align: top;
+	width: 70%;
+	height: 30px;
+	border: none;
+}
+
+.top-sech .top-searchs {
+	float: right;
+	width: 20%;
+	text-align: center;
+	line-height: 30px;
+	height: 30px;
+}
+
+.searchback {
+	background-color: #999;
+	opacity: 0.8;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	z-index: 99;
+}
+
+input{
+	outline: none;
+}
+.add0{
+	width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 60px;
+    right: 10px;
+    border: 1px solid #e2dddd;
+    box-shadow: 1px 5px 5px #f1be2e;
+    background-color: #fff;
+    font-size: 10px;
+    line-height: 17px;
+    color: gray;
+    text-align: center;
+    display: none;
+}
+.add1{
+	width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 110px;
+    right: 10px;
+    color: gray;
+    border: 1px solid #e2dddd;
+    box-shadow: 1px 5px 5px #f1be2e;
+    background-color: #fff;
+    font-size: 10px;
+    line-height: 17px;
+    display: none;
+    text-align: center;
+}
+.fenye{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 60px;
+}
+.fenye ul{
+    width: 90%;
+    margin: 5px auto;
+    line-height: 30px;
+}
+.fenye ul li{
+    float: left;
+    width: 40px;
+    height: 30px;
+    font-size: 12px;
+    list-style-type: none;
+    text-align: center;
+    line-height: 30px;
+}
+.fenye ul li a{
+    color: #555;
+}
+.fenye ul li > .active{
+    color: red;
+}

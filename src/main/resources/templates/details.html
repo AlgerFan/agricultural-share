@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>土地详情</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/details.css}" />
+		<link rel="stylesheet" type="text/css" th:href="@{/font-awesome-4.7.0/css/font-awesome.css}" />
+		<script type="text/javascript" th:src="@{/js/jquery-2.1.0.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/details.js}"></script>
+	</head>
+	<body th:object="${message}">
+		<div class="top">
+			<a th:href="@{/index}">
+				<div class="top-up">
+					<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;农资共享
+				</div>
+				<div class="clear"></div>
+			</a>
+			<div class="container">
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<div class="carousel slide" id="carousel-182441">
+							<ol class="carousel-indicators">
+								<li class="active" data-slide-to="0" data-target="#carousel-182441">
+								</li>
+								<li data-slide-to="1" data-target="#carousel-182441">
+								</li>
+								<li data-slide-to="2" data-target="#carousel-182441">
+								</li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="item active">
+									<img alt="" th:src="'/Path'+${message.mainPictureUrl}" />
+								</div>
+							</div>
+							<a class="left carousel-control" href="#carousel-182441" data-slide="prev">
+								<!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+								<!--<i class="fa fa-chevron-left fass"></i>-->
+							</a>
+							<a class="right carousel-control" href="#carousel-182441" data-slide="next">
+								<!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+								<!--<i class="fa fa-chevron-right fass"></i>-->
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="topname">
+				<h3 th:text="${message.title}">土地家园  3公顷沙土2公顷黑土</h3>
+				<p class="nametime">发布时间：<span th:text="${message.buildDate}">2017-07-20</span></p>
+				<!--<p class="namenum">浏览：<span th:text="${message.clicks}">5</span>次</p>-->
+				<div class="clear"></div>
+			</div>
+			<div class="table">
+				<div class="table-form">
+					<div class="table-form-s">
+						<div class="form-s-top">地型</div>
+						<div class="form-s-bottom" th:text="${message.parentType}">2黑1白</div>
+					</div>
+					<div class="table-form-s">
+						<div class="form-s-top">总价</div>
+						<div class="form-s-bottom" th:text="${message.price}">700元/亩*年</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="form-parts">
+					<p class="parts-left">名称：<b th:text="${message.title}">土地家园</b></p>
+					<p class="parts-left">类型：<b th:text="${message.sonType}">5000平方米</b></p>
+					<p class="parts-left">地址：<b th:text="${message.address}">牧野-都市村庄</b></p>
+					<p class="parts-left">电话：<b th:text="${message.phone}">134****3454</b></p>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="footer-form">
+					<h4>农业描述</h4>
+				</div>
+				<div class="footer-s">
+					<span th:text="${message.content}"></span>
+				</div>
+			</div>
+            <div class="bot">
+				<a th:href="'tel:'+${message.phone}"><div class="bot-d">电话</div></a>
+                <input type="text" th:value="${message.messageId}" class="inp"  style="display: none">
+				<span th:if="${session.user!=null}">
+                    <div class="bot-d collect1" th:if="${msg.equals('0')}">收藏</div>
+                    <div class="bot-d collect2" th:if="${msg.equals('1')}">已收藏</div>
+                </span>
+                <span th:if="${session.user==null}">
+                    <a th:href="@{/user/toLogin}"><div class="bot-d collect1">收藏</div></a>
+                </span>
+            </div>
+		</div>
+	</body>
+</html>

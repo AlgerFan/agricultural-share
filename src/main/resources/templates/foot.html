@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>我的足迹</title>
+	<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/foot.css}"/>
+	<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+
+</head>
+<body>
+	<div class="list-title">
+		<a th:href="@{/index}">
+			<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;我的足迹
+		</a>
+		<div class="Icon whiteborder">
+			<i class="fa fa-power-off"></i>
+		</div>
+	</div>
+	<div class="allcoll" >
+        <div class="coll" th:each="messages : ${messages}">
+            <a class="goods-img" th:href="@{'/browse?messageId=' + ${messages.messageId}}">
+                <img th:src= "@{'/Path' + ${messages.mainPictureUrl}}" />
+            </a>
+            <div class="goods-money">
+                <span class="allle" th:text="${messages.title}">优美黄昏优美黄昏优美黄昏优美黄昏</span>
+                <span class="allx"><i class="fa fa-navicon"></i></span>
+				<input type="hidden" th:value="${messages.clicks}" >
+                <div style="display: none" th:text="${messages.messageId}"></div>
+            </div>
+        </div>
+	</div>
+	<div class="black none"></div>
+	<div class="bottom ">
+		<div class="allcz">
+            <input type="hidden" class="ids">
+            <input type="hidden" class="mesid">
+			<div class="tubiao">
+				<div class="icon">
+					<i class="fa fa-phone"></i>
+				</div>
+				联系
+			</div>
+			<div class="tubiao collon">
+				<div class="icon">
+					<i class="fa fa-star-o"></i>
+				</div>
+				收藏
+			</div>
+			<div class="tubiao deletes">
+				<div class="icon">
+					<i class="fa fa-trash"></i>
+				</div>
+				删除
+			</div>
+		</div>
+		<div class="quxiao">取消</div>
+	</div>
+    <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/js/foot.js}"></script>
+</body>
+</html>

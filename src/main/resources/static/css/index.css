@@ -1,0 +1,501 @@
+body,html{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+a{
+    text-decoration: none;
+    color: black
+}
+.order_details{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: 999;
+}
+.order_details ul{
+	width:auto;
+	height: 50px;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	border-top: solid 1px #E1E1E1;
+}
+.order_details ul li{
+	float: left;
+    display: block;
+    width: 33%;
+    height: 45px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    color: gray;
+}
+.order_details .checked{
+	background-color: #fff;
+	color: red;
+}
+.hidedomdiv{
+	display: none;
+}
+.showdomdiv{
+	display: block;
+}
+.showsss{
+	width:100%;
+	height: 100%;
+	position: absolute;
+	bottom:50px;
+	padding-top:50px;
+	box-sizing: border-box;
+}
+.user{
+	background-color:#F9F9F9;
+	overflow: auto;
+}
+.user-title{
+	width: 94%;
+	height: 50px;
+	font-family: "仿宋";
+	padding: 0 3%;
+	line-height: 50px;
+	position: fixed;
+	font-weight: bold;
+	background-color: white;
+	z-index: 3;
+}
+.Icon{
+	width: 30px;
+	height: 50px;
+	float: right;
+	text-align: center;
+	animation:myfirst 4s;
+	animation-iteration-count:infinite;
+}
+@keyframes myfirst{
+	0%{opacity: 1;}
+	50%{opacity: 0;}
+	100%{opacity: 1;}
+}
+.bgm{
+	width: 100%;
+	height: 150px;
+	position: relative;
+	margin-top: 50px;
+}
+.bgm>img{
+	width: 100%;
+	height: 90px;
+	 filter: blur(4px);
+}
+.user-information{
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	bottom: 0;
+}
+.user-img{
+	width: 70px;
+	height: 70px;
+	margin: -10px auto;
+	border-radius: 60px;
+	overflow: hidden;
+}
+.user-img>img{
+	width: 100%;
+	height: 100%;
+}
+.user-name{
+	width: 100%;
+    height: 60px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 12px;
+    background-color: white;
+    margin-top: -20px;
+}
+.nav{
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+	overflow: auto;
+	font-size: 14px;
+}
+.nav>div{
+	width: 95%;
+	height: 50px;
+	padding-left: 5%;
+	background-color: white;
+	line-height: 50px;
+	border-bottom: solid 1px #F9F9F9;
+	position: relative;
+}
+.right{
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	float: right;
+}
+.topbottom{
+	border-bottom: solid 5px #f1f1f1;
+}
+.all_Conversation{
+	width: 100%;
+	height: auto;
+	margin-top: 55px;
+	position: relative;
+}
+.all_Conversation>div{
+	width: 100%;
+	height: 50px;
+	position: relative;
+	border-bottom: solid 1px #f1f1f1;
+}
+.Conversation{
+	background-color: aliceblue;
+}
+.Friend_img{
+	width: 40px;
+	height: 40px;
+	border-radius: 42px;
+	margin: 5px;
+}
+.Friend_name{
+	width: 50%;
+	height: 20px;
+	position: absolute;
+	top: 5px;
+	left: 56px;
+}
+.Friend_word{
+	width: 80%;
+	height: 20px;
+	position: absolute;
+	bottom: 3px;
+	left: 56px;
+	color: gray;
+	font-size: 12px;
+}
+.Friend_time{
+	width: auto;
+	height: 20px;
+	position: absolute;
+	right: 5px;
+	text-align: right;
+	top: 4px;
+	color: gray;
+	font-size: 10px;
+}
+.Friend_news{
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	position: absolute;
+	right: 4px;
+	bottom: 5px;
+	color: white;
+	background-color: red;
+	line-height: 15px;
+	text-align: center;
+	font-size: 8px;
+}
+.redtop{
+	background-color: red;
+}
+.search{
+	width: 94%;
+	height: 40px;
+	padding: 0 3%;
+	margin-top: 50px;
+	background-color: red;
+	line-height: 40px;
+}
+.search>input{
+	width: 78%;
+	height: 23px;
+	margin: 0 auto;
+	padding: 0;
+	padding-left:2%;
+	border: 0;
+	border-radius: 3px;
+	outline: none;
+}
+.classification{
+	width: 10%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	float: left;
+}
+.touser{
+	width: 10%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	float: right;
+	color: white;
+}
+.allicon{
+	width: 100%;
+	height: 140px;
+	padding-bottom: 5px;
+	border-bottom: solid 1px #f1f1f1;
+}
+.allicon>div{
+	width: 20%;
+    height: 60px;
+    padding-top: 12px;
+    float: left;
+    font-size: 8px;
+    color: gray;
+    line-height: 20px;
+    text-align: center;
+}
+.little{
+	width: 30px;
+	height: 30px;
+}
+.today{
+	width: 94%;
+	height: 40px;
+	padding: 10px 3%;
+	position: relative;
+}
+.today-title{
+	width: 15%;
+	height: 100%;
+	font-weight: bold;
+	text-align: center;
+	line-height: 20px;
+	font-style: italic;
+	float: left;
+	text-shadow:0 0 10px red;
+	letter-spacing: 3px;
+	font-family: cursive;
+}
+.today-text{
+	width: 85%;
+	height: 100%;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+.today-text-long{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 0;
+	transition: 1s;
+}
+.today-text-long>div{
+	width: 90%;
+	height: 20px;
+	padding-left: 10%;
+	font-size: 10px;
+	line-height: 20px;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.label{
+	color:red;
+	border: solid 1px red;
+	border-radius: 3px;
+	margin-right: 3px;
+}
+.white{
+	color: white;
+}
+.whiteborder{
+	border-color: white;
+}
+.carousel{
+	width: 100%;
+	height: 80px;
+	position: relative;
+}
+.carousel>img{
+	width: 100%;
+	height: 100%;
+}
+.imgdiv{
+	width: 96%;
+	margin: 2%;
+	height: 100px;
+	position: relative;
+	overflow: hidden;
+}
+.back{
+	width: 100%;
+	height: 100px;
+	background-image: url(../images/lunbo1.jpg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: 100% 100%;
+	z-index: -1;
+}
+/*上下变化*/
+.img{
+	width:5.5%;
+	height:0;
+	background-image: url(../images/tu/timg.jpg);
+	background-size: 2100% 100px;
+	transition: 0.5s;
+	position: absolute;
+}
+/*.img{
+	width:0;
+	height:100px;
+	background-image: url(../images/lunbo2.jpg);
+	background-size: 2100% 100px;
+	transition: 0.5s;
+	position: absolute;
+}*/
+.guess{
+	width: 94%;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 3%;
+	box-shadow: 0px 7px 10px -7px #5E5E5E;
+	color: gray;
+	font-family: "微软雅黑";
+}
+.recommend{
+	width: 100%;
+	height: auto;
+	margin-top: 5px;
+	margin-bottom: 50px;
+}
+.recommend>div{
+	width: 94%;
+	height: 80px;
+	padding: 3%;
+	position: relative;
+}
+.goods-img{
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+.goods-img>img{
+	width: 100%;
+	height: 100%;
+}
+.goods-right{
+	width: 70%;
+	height: 100%;
+	float: right;
+}
+.goods-title{
+	width: 95%;
+    height: 20px;
+    line-height: 20px;
+    color: black;
+    font-size: 15px;
+    padding-left: 5%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.goods-keywords{
+	width: 95%;
+	padding-left: 5%;
+	color:gray;
+    font-size: 10px;
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.goods-money{
+	width: 95%;
+	height: 30px;
+	line-height: 30px;
+	color: red;
+	font-size: 15px;
+	padding-left: 5%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.goods-time{
+	font-size: 10px;
+	color:lightgray;
+}
+.goods-phone{
+	width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    right: 15px;
+    bottom: 35px;
+    font-size: 19px;
+    color: red;
+    border: solid 1px red;
+    border-radius: 35px;
+}
+.forrm{
+	display: initial;
+}
+.searchpr{
+    width: 76%;
+    height: 22px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    padding-left: 4%;
+    border-radius: 3px;
+}
+.sear{
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: 112px;
+	right: 15px;
+	color: #f1f1f1;
+}
+.ippt{
+	width: 96%;
+	height: 24px;
+	outline: none;
+	margin: 0;
+	padding: 0;
+	border-radius: 5px;
+	text-align: center;
+	border: solid 1px #f1f1f1;
+}
+.goods-img>span {
+	font-size: 28px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 15px;
+	color: peru;
+	line-height: 40px;
+}
+.circle{
+	position: absolute;
+	bottom: 39px;
+	right: 51px;
+	border-radius: 100%;
+	width: 7px;
+	height: 7px;
+	background-color: red;
+}
+.circleTwo{
+	position: absolute;
+	border-radius: 100%;
+	width: 7px;
+	height: 7px;
+	background-color: red;
+	top: 22px;
+	right: 55px;
+}

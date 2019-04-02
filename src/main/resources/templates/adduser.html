@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>添加用户</title>
+		<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.css}" />
+		<link rel="stylesheet" th:href="@{/css/adduser.css}" />
+	</head>
+	<body>
+		<div class="list-title">
+			<a th:href="@{/admin/user/adminUserList}">
+				<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;返回
+			</a>
+		</div>
+		<div class="top">
+			<div class="loginpho">
+				<img th:src="@{/images/logo1.png}" />
+			</div>
+			<!--<div class="loginpho">-->
+				<!--<div class="spanimg block" onclick="photoup()">-->
+					<!--<p style="margin-top: 10px;">十</p>-->
+					<!--<p >添加头像</p>-->
+				<!--</div >-->
+				<!--<img class=" none" onclick="addphoto()" id="imgshow" src="" />-->
+			<!--</div>-->
+			<!--<input id="fileds" style="display: none;" name="imgfile" type="file" accept="image/*" value="上传图片" />-->
+            <div class="loginnum">
+                <input placeholder="请输入11位手机号" name="userPhone" class="userPhone" maxlength="11" />
+                <p class="logintext nump"></p>
+            </div>
+			<div class="loginnum">
+				<input placeholder="请输入6-16位密码" class="passPassWord" name="userPassWord" maxlength="16" />
+                <p class="logintext passP"></p>
+			</div>
+			<div class="loginnum">
+				<input name="userPassword" class="userPass" placeholder="请再次输入密码" maxlength="16" />
+                <p class="logintext passp"></p>
+			</div>
+			<div class="loginnum">
+				<input placeholder="请输入添加的昵称。" name="userName" class="userName" maxlength="16" />
+                <p class="logintext namep"></p>
+			</div>
+			<a href="javascript:void(0);">
+				<div class="login">确认添加</div>
+			</a>
+            <div class="yesgen none"></div>
+            <div class="yesgenback none"></div>
+			<div class="clear"></div>
+			<script type="text/javascript" th:src="@{/js/jquery-2.1.0.js}" ></script>
+			<script type="text/javascript" th:src="@{js/adduser.js}" ></script>
+		</div>
+	</body>
+</html>

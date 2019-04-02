@@ -1,0 +1,328 @@
+body {
+	width: 100%;
+	font-family: 微软雅黑;
+	margin: 0px;
+	overflow: scroll;
+	background-color: #fff;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+input {
+	outline: none;
+}
+
+.none {
+	display: none;
+}
+
+.block {
+	display: block;
+}
+
+.clear {
+	clear: both;
+}
+
+.list-title {
+	width: 94%;
+	height: 60px;
+	line-height: 60px;
+	padding: 0 3%;
+	z-index: 7;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+
+.Icon {
+	width: 30px;
+	height: 50px;
+	float: right;
+	text-align: center;
+	animation: myfirst 4s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes myfirst {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.top {
+	width: 100%;
+	margin: 0px auto;
+	margin-top: 60px;
+}
+
+.top-img {
+	width: 100%;
+}
+
+.top-img img {
+	width: 100%;
+	height: 100px;
+}
+
+.top-issue {
+	width: 94%;
+	margin: 10px auto;
+}
+
+.issue-title {
+	margin: 30px 0px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.issue-find {
+	width: 80%;
+	margin: 0px auto;
+	height: 40px;
+	border-bottom: 1px solid #999;
+}
+
+.issue-find .find {
+	width: 25%;
+	float: left;
+	color: #444;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+.issue-find .findtype {
+	width: 75%;
+	float: left;
+	color: #757575;
+	line-height: 40px;
+	font-size: 15px;
+}
+
+.typetext {
+	float: left;
+}
+
+.typefont {
+	float: right;
+	line-height: 40px;
+}
+
+.issue-phone {
+	width: 80%;
+	margin: 20px auto;
+	height: 40px;
+	border-bottom: 1px solid #999;
+}
+
+.issue-phone .phone {
+	width: 25%;
+	float: left;
+	color: #444;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+.issue-phone .phonenum {
+	width: 75%;
+	height: 38px;
+	float: left;
+	color: #333;
+	line-height: 37px;
+	border: none;
+	font-size: 14px;
+}
+
+.issue-up {
+	width: 80%;
+	margin: 0px auto;
+	margin-top: 40px;
+	height: 40px;
+	background-color: #de6320;
+	text-align: center;
+	line-height: 40px;
+	color: #fff;
+	border-radius: 5px;
+}
+
+.issue-site {
+	width: 80%;
+	margin: 0px auto;
+	border-bottom: 1px solid #999;
+}
+
+.site-text {
+	width: 25%;
+	float: left;
+	color: #444;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+.site {
+	width: 75%;
+	float: left;
+	color: #333;
+	line-height: 37px;
+	border: none;
+	font-size: 14px;
+}
+
+.site-s {
+	width: 75px;
+	border-radius: 5px;
+	outline: none;
+	background-color: #fff;
+}
+
+.site-input {
+	width: 75px;
+	border-radius: 5px;
+	outline: none;
+	background-color: #fff;
+	border: 1px solid #999;
+}
+
+.root {
+	height: 35px;
+	line-height: 35px;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.mainright {
+	width: 80%;
+	margin: 0px auto;
+	text-align: center;
+	padding: 0;
+}
+
+.mainright ul {
+	padding-left: 0px;
+}
+
+
+/*.footer{
+	width: 100%;
+	margin: 10px auto;
+	margin-top: 40px;
+}
+.footer-s{
+    width: 50%;
+    height: 100px;
+    float: left;
+    margin-top: 10px;
+}
+.footer-s-block{
+   margin: 0px auto;
+   width: 100px;
+   height: 100px;
+}
+.footer-s-block p{
+	display: block;
+	margin: 0px auto;
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	background-color: #f3f3f3;
+	text-align: center;
+	line-height: 50px;
+}
+.footer-s-block .s-block-text{
+	text-align: center;
+}*/
+
+.need {
+	opacity: 1;
+	transition: all 0.5s;
+	z-index: 200;
+	width: 100%;
+	padding-bottom: 30px;
+	position: fixed;
+	bottom: 0px;
+	left: 100%;
+	background-color: #f3f3f3;
+}
+
+.need .needs {
+	width: 92%;
+	height: 100%;
+	margin: 0px auto;
+}
+
+.needs-left {
+	float: left;
+	padding-top: 20px;
+	width: 39%;
+	height: 90%;
+	border-right: 1px solid rgb(224, 218, 218);
+}
+.needs-right {
+	float: left;
+	width: 60%;
+	height: 100%;
+}
+
+.needs-left>p {
+	height: 40px;
+	line-height: 40px;
+	width: 80%;
+	margin: 0px auto;
+	text-align: center;
+	font-size: 15px;
+	border-bottom: 1px solid rgb(224, 218, 218);
+}
+
+.needs-left>.active {
+	background-color: rgb(224, 218, 218);
+	color: #de6320;
+	border-radius: 5px;
+	box-shadow: 0px 1px 1px #999;
+}
+.needs-right .needs-x {
+	width: 100%;
+	height: 100%;
+}
+.needs-x>p {
+	height: 40px;
+	line-height: 40px;
+	width: 80%;
+	margin: 0px auto;
+	text-align: center;
+	font-size: 15px;
+	border-bottom: 1px solid rgb(224, 218, 218);
+}
+.needs-x .active {
+	background-color: rgb(224, 218, 218);
+	color: #de6320;
+	border-radius: 5px;
+	box-shadow: 0px 1px 1px #999;
+}
+.needback {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	z-index: 100;
+	background-color: #999;
+	opacity: 0.7;
+}

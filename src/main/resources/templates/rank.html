@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,
+		minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>农资排行</title>
+	<link rel="Shortcut Icon" href="./images/01.icon">
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/rank.css"/>
+	<script type="text/javascript" src="./js/rank.js"></script>
+</head>
+<body>
+	<div class="list-title">
+		<a href="./index.html">
+			<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;农资排行
+		</a>
+		<div class="Icon">
+            <i class="fa fa-power-off"></i>
+        </div>
+	</div>
+	<div class="rank">
+		<div class="rank-kind">
+			<div class="aa chaked">数量榜</div>
+			<div class="aa">金额榜</div>
+			<div class="aa">地区榜</div>
+		</div>
+		<div class="rank-list">
+			<div>
+				<div class="number">1</div>
+				<div class="rank-img">
+					<img src="images/nong/shou/timg.jpg" alt="" />
+				</div>
+				<div class="rank-text">
+					<span class="rank-text-title">小型家用小麦收割机</span><br/>
+					<span class="rank-text-keywords">新乡市红旗渠洪门镇</span><br/>
+					<span class="rank-text-number">182****0281</span>
+				</div>
+				<div class="rank-text-money">310元/天</div>
+			</div>
+			<div>
+				<div class="number">2</div>
+				<div class="rank-img">
+					<img src="images/nong/shou/timg(1).jpg" alt="" />
+				</div>
+				<div class="rank-text">
+					<span class="rank-text-title">沃得锐龙收割机 瑞龙</span><br/>
+					<span class="rank-text-keywords">鹤壁市善堂镇前村</span><br/>
+					<span class="rank-text-number">131****6357</span>
+				</div>
+				<div class="rank-text-money">100元/天</div>
+			</div>
+			<div>
+				<div class="number">3</div>
+				<div class="rank-img">
+					<img src="images/nong/shou/timg(4).jpg" alt="" />
+				</div>
+				<div class="rank-text">
+					<span class="rank-text-title">久保田收割机自带履带</span><br/>
+					<span class="rank-text-keywords">新乡市辉县上李家庄</span><br/>
+					<span class="rank-text-number">173****5176</span>
+				</div>
+				<div class="rank-text-money">230元/天</div>
+			</div>
+			<div>
+				<div class="number">4</div>
+				<div class="rank-img">
+					<img src="./images/nong/li/timg.jpg" alt="" />
+				</div>
+				<div class="rank-text">
+					<span class="rank-text-title">18马力大型犁地机</span><br/>
+					<span class="rank-text-keywords">安阳市殷都区安阳河边</span><br/>
+					<span class="rank-text-number">139****0987</span>
+				</div>
+				<div class="rank-text-money">150元/天</div>
+			</div>
+			<div>
+				<div class="number">5</div>
+				<div class="rank-img">
+					<img src="./images/nong/li/timg(1).jpg" alt="" />
+				</div>
+				<div class="rank-text">
+					<span class="rank-text-title">多功能田园管理犁地机</span><br/>
+					<span class="rank-text-keywords">许昌市王庄村头</span><br/>
+					<span class="rank-text-number">135****9564</span>
+				</div>
+				<div class="rank-text-money">180元/天</div>
+			</div>
+			<div>
+				<div class="number">6</div>
+				<div class="rank-img">
+					<img src="./images/nong/li/timg(2).jpg" alt="" />
+				</div>
+				<div class="rank-text">
+					<span class="rank-text-title">多功能大蒜播种机</span><br/>
+					<span class="rank-text-keywords">驻马店市胡庙乡周庄</span><br/>
+					<span class="rank-text-number">139****1581</span>
+				</div>
+				<div class="rank-text-money">200元/天</div>
+			</div>
+			<div>
+				<div class="number">7</div>
+				<div class="rank-img">
+					<img src="./images/nong/bo/timg(3).jpg" alt="" />
+				</div>
+				<div class="rank-text">
+					<span class="rank-text-title"></span><br/>
+					<span class="rank-text-keywords">新乡市红旗渠洪门镇</span><br/>
+					<span class="rank-text-number">182****0281</span>
+				</div>
+				<div class="rank-text-money">400元/天</div>
+			</div>
+		</div>
+	</div>
+</body>
+	<script type="text/javascript">
+		$(".aa").on("click",function(){
+			$(this).css("background-color","white");
+			$(this).css("border-left","solid 3px red")
+			$(this).css("box-shadow","5px 0 0 0 rgba(0, 0, 0, 0.2)")
+			$(this).siblings().css("background-color","#F0F0F0")
+			$(this).siblings().css("border-left","none")
+			$(this).siblings().css("box-shadow","none")
+		})
+	</script>
+</html>

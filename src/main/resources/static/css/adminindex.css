@@ -1,0 +1,131 @@
+body,html{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+a{
+	text-decoration: none;
+	color: white;
+	text-align: center;
+}
+.list-title{
+	width: 94%;
+    height: 50px;
+    font-family: "仿宋";
+    padding: 0 3%;
+    line-height: 50px;
+    position: fixed;
+    top: 0;
+    font-weight: bold;
+    background-color: white;
+    z-index: 3;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+.user{
+	width: 30px;
+	height: 30px;
+	float: right;
+	margin: 10px;
+}
+.user>img{
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+.menu{
+	width: 100px;
+	height: auto;
+	background-color: antiquewhite;
+	position: absolute;
+	top: 55px;
+	border-radius: 10px;
+	right: 10px;
+	display: none;
+	font-size: 12px;
+}
+.menu:after{
+	content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 70%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent antiquewhite transparent;
+}
+.aa{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	border-bottom: solid 1px white;
+}
+.list-body{
+	width: 90%;
+	height: 330px;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 80px;
+	overflow: hidden;
+}
+.list{
+	width: 30%;
+	height: 120px;
+	background-color: lavender;
+	margin: 10px 5%;
+	padding: 10px 5%;
+}
+.list1{
+	position: absolute;
+	left: 0;
+	top: 0px;
+	animation:myfirst1 1.5s;
+}
+.list2{
+	position: absolute;
+	right: 0;
+	top: 0px;
+	animation:myfirst2 1.5s;
+}
+.list3{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	animation:myfirst3 1.5s;
+}
+.list4{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	animation:myfirst4 1.5s;
+}
+@keyframes myfirst1{
+	0%{top: -180px;}
+	100%{top: 0px;}
+}
+@keyframes myfirst2{
+	0%{right: -45%;}
+	100%{right: 0;}
+}
+@keyframes myfirst4{
+	0%{bottom: -180px;}
+	100%{bottom: 0;}
+}
+@keyframes myfirst3{
+	0%{left: -45%;}
+	100%{left: 0;}
+}
+.list>img{
+	width: 100%;
+	height: 70%;
+}
+.text{
+	width: 100%;
+	height: 30%;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	line-height:2.5;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>个人设置</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/font-awesome-4.7.0/css/font-awesome.css}" />
+		<link rel="stylesheet" th:href="@{/css/set.css}" />
+	</head>
+	<body>
+		<div class="list-title">
+			<a th:href="@{/index}">
+				<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;个人信息
+			</a>
+			<div class="Icon">
+				<i class="fa fa-power-off"></i>
+			</div>
+		</div>
+		<div class="top">
+			<div class="top-all">
+				<form th:action="@{/user/headPortrait}" enctype="multipart/form-data" method=post >
+					<div class="all-photo" onclick="photoup()">
+						<div class="all-photo-left">
+							<span>头像</span>
+						</div>
+						<div class="all-photo-right">
+							<img th:src="'/Path'+${session.user.getUserAvatar()}" id="imgshow" />
+						</div>
+					</div>
+					<input id="fileds" style="display: none;" name="file" type="file" accept="image/*" value="上传图片" />
+					<input type="submit" style="display: none" class="phosub">
+				</form>
+
+				<div class="all-name">
+					<div class="all-name-left">
+						<span>昵称</span>
+					</div>
+					<div class="all-name-right">
+						<span th:text="${session.user.getUserName()}">北海情书</span>
+					</div>
+				</div>
+				<div class="all-phone">
+					<div class="all-phone-left">
+						<span>手机号</span>
+					</div>
+					<div class="all-phone-right">
+						<span th:text="${session.user.getUserPhone()}">182****9085</span>
+					</div>
+				</div>
+				<div class="all-pass" onclick="password()">
+					<div class="all-pass-left">
+						<span>密码</span>
+					</div>
+					<div class="all-pass-right">
+						<span>修改&nbsp;&nbsp; <i class="fa fa-chevron-right"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footer-finish">保存修改</div>
+		</div>
+		<div class="pass">
+			<div class="pass-title" onclick="closepassword()">
+				<a>
+					<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;取消
+				</a>
+			</div>
+			<div class="pass-top" style="margin-top: 20px;">
+				<div class="pass-name">
+					<span>旧密码：</span>
+				</div>
+				<div class="pass-word">
+					<input onkeyup="clearp()" type="password" class="oldpass" maxlength="16" placeholder="若包含字母，请注意区分大小写" />
+					<p class="passone"></p>
+				</div>
+			</div>
+			<div class="pass-top">
+				<div class="pass-name">
+					<span>新密码：</span>
+				</div>
+				<div class="pass-word">
+					<input onkeyup="clearp()" type="password" class="newp" maxlength="16" placeholder="请输入6-16位密码 " />
+					<p class="passtwo"></p>
+				</div>
+			</div>
+			<div class="pass-top">
+				<div class="pass-name">
+					<span>确认密码：</span>
+				</div>
+				<div class="pass-word">
+					<input onkeyup="clearp()" type="password" class="newpass" maxlength="16" placeholder="请再次输入新密码" />
+					<p class="passthr"></p>
+				</div>
+			</div>
+			<div class="yespass">
+				<div class="yespass-finish" onclick="pass()">确认更改</div>
+				<p class="finish none">修改成功，将于3s后自动跳转至登录页面</p>
+			</div>
+		</div>
+		<script type="text/javascript" th:src="@{/js/jquery-2.1.0.js}"></script>
+		<script type="text/javascript" th:src="@{/js/set.js}"></script>
+	</body>
+</html>

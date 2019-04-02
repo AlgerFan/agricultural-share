@@ -1,0 +1,98 @@
+body,html{
+	margin: 0;
+	padding: 0;
+	background-color: #FAFAFA;
+}
+a{
+	text-decoration: none;
+	color: gray;
+}
+.list-title{
+	width: 94%;
+	height: 60px;
+	line-height: 60px;
+	padding:0 3%;
+	z-index: 7;
+	font-size: 17px;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+.Icon{
+	width: 30px;
+	height: 50px;
+	float: right;
+	text-align: center;
+	animation:myfirst 4s;
+	animation-iteration-count:infinite;
+}
+@keyframes myfirst{
+	0%{opacity: 1;}
+	50%{opacity: 0;}
+	100%{opacity: 1;}
+}
+.title{
+	width: 100%;
+	height: 150px;
+	position: relative;
+	margin-top: 60px;
+}
+.title>img,.title-icon>img{
+	width: 100%;
+	height: 100%;
+}
+.title-icon{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	margin-left: -30px;
+	border-radius: 10px;
+	background-color: white;
+}
+.ipt{
+	width: 75%;
+    height: 25px;
+    border: 0;
+    outline: none;
+    position: absolute;
+    top: 95px;
+    background-color: white;
+    border-radius: 10px;
+    left: 50%;
+    padding-left: 3%;
+    margin-left: -37%;
+}
+input::placeholder{
+	text-align: center;
+}
+.allplants{
+	width: 100%;
+	height: auto;
+	position: relative;
+	padding: 1px 0;
+	margin: 10px 0;
+	background-color: white;
+	overflow: hidden;
+	line-height: 30px;
+	color: gray;
+}
+.allplants1{
+	width: 95%-2px;
+	height: 30px;
+	padding-left: 5%;
+	border: solid 1px #F0F0F0;
+	font-size: 17px;
+}
+.allplants2{
+	width: 33%;
+	height: 30px;
+	float: left;
+	text-align: center;
+	font-size: 14px;
+	border-right: solid 1px #F0F0F0;
+	border-bottom: solid 1px #F0F0F0;
+}

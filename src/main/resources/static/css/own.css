@@ -1,0 +1,158 @@
+body,html{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.list-title{
+	width: 94%;
+	height: 60px;
+	line-height: 60px;
+	padding:0 3%;
+	z-index: 7;
+	font-size: 17px;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+.Icon{
+	width: 30px;
+	height: 50px;
+	float: right;
+	text-align: center;
+	animation:myfirst 4s;
+	animation-iteration-count:infinite;
+}
+@keyframes myfirst{
+	0%{opacity: 1;}
+	50%{opacity: 0;}
+	100%{opacity: 1;}
+}
+.select{
+	width: 80px;
+    height: 50px;
+    border-radius: 70px;
+    line-height: 80px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: #de6320;
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    z-index: 6;
+    font-size: 10px;
+    margin-left: -40px;
+    box-shadow: 0 0 50px #de6320;
+}
+.allse{
+	width: 100%;
+	height: 0;
+	position: fixed;
+	top: 70px;
+    z-index: 5;
+    background-color: white;
+    overflow: hidden;
+}
+.allse>div{
+	width: 14%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 10px;
+	transform-origin: 25% 50%;
+	border-radius: 100%;
+	background-color: #de6320;
+	color: white;
+	float: left;
+}
+@keyframes myfirst{
+	0%{top: -110px;}
+	10%{top: 70px;}
+	20%{top: 20px;}
+	100%{top: 70px;}
+}
+.alls2{
+	margin: 5px 3%;
+	margin-top: 10px;
+}
+.ownx{
+	width: 100%;
+	height: auto;
+	margin-top: 100px;
+}
+.ownx>div {
+    width: 80%;
+    height: 50px;
+    border-bottom: solid 2px #999;
+    margin: 0 auto;
+    line-height: 50px;
+    position: relative;
+}
+.ownx>div .ownxleft{
+	width: 25%;
+	height: 50px;
+	float: left;
+	color: #444;
+	line-height: 50px;
+	font-size: 14px;
+}
+.ownx>div .ownxright{
+	width: 75%;
+	height: 48px;
+	float: left;
+	color: #999;
+	line-height: 37px;
+	border: none;
+	font-size: 14px;
+}
+input{
+	outline: none;
+}
+.yes{
+	width: 80%;
+	height: 40px;
+	background-color: #de6320;
+	text-align: center;
+	letter-spacing: 20px;
+	font-weight: bold;
+	line-height: 40px;
+	color: white;
+	font-size: 15px;
+	display: block;
+	margin: 0 auto;
+	border: 0;
+	border-radius: 10px;
+	margin-bottom: 15px;
+}
+.remind{
+    width: 180px;
+    height: 40px;
+    background:rgba(0,0,0,0.5);
+    position: absolute;
+    left: 50%;
+    top: -5%;
+    margin-left: -90px;
+    margin-top: -20px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 5px;
+    font-size: 15px;
+}
+@keyframes myfirst5{
+    0%{top: 0%;transform: rotate(0deg);}
+    15%{top: 50%;transform: rotate(0deg);box-shadow: 0px 20px 35px gray;}
+    20%{top: 49%;transform: rotate(-10deg);}
+    25%{top: 50%;transform: rotate(8deg);}
+    30%{top: 49%;transform: rotate(-6deg);}
+    35%{top: 50%;transform: rotate(4deg);}
+    40%{top: 49%;transform: rotate(-2deg);}
+    45%{top: 50%;transform: rotate(0deg);box-shadow: 0px 0px 0px gray;}
+    100%{top: 50%;}
+}

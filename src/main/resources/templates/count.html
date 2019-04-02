@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>数据统计</title>
+<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+#container {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  margin-top: 60px;
+  position: relative;
+}
+#chart {
+  display: block;
+  margin: 0;
+  position: absolute;
+  cursor: pointer;
+  top:0;
+  left:50%;
+  margin-left: -175px;
+}
+#chartData {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 240px;
+    border-collapse: collapse;
+}
+.list-title{
+	width: 94%;
+	height: 60px;
+	line-height: 60px;
+	padding:0 3%;
+	z-index: 7;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+.Icon{
+	width: 30px;
+	height: 50px;
+	float: right;
+	text-align: center;
+	animation:myfirst 4s;
+	animation-iteration-count:infinite;
+}
+@keyframes myfirst{
+	0%{opacity: 1;}
+	50%{opacity: 0;}
+	100%{opacity: 1;}
+}
+th{
+	width: 50%;
+	font-size: 13px;
+	color: cornflowerblue;
+}
+tr{
+	text-align: center;
+}
+td{
+	font-size: 12px;
+}
+.text{
+	width: 100%;
+	font-size: 12px;
+	color: gray; 
+	text-align: center;
+	position: absolute;
+	top: 210px;
+}
+.present{
+	width: 88%;
+	height: 90px;
+	margin: 3%;
+	padding: 3%;
+	position: absolute;
+	top: 360px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: gray;
+	border:solid 1px darkgray;
+	border-radius: 8px;
+	line-height: 30px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.red{
+	color: red;
+	font-size: 15px;
+}
+</style>
+<script th:src="@{http://cdn.bootcss.com/jquery/1.4.2/jquery.min.js}"></script>
+<script>
+$( pieChart );
+function pieChart() {
+  var chartSizePercent = 55;                        // 比例
+  var sliceBorderWidth = 1;                         // Width (in pixels) of the border around each slice
+  var sliceBorderStyle = "#fff";                    // Colour of the border around each slice
+  var sliceGradientColour = "#ddd";                 // Colour to use for one end of the chart gradient
+  var maxPullOutDistance = 5;                      // 出去距离
+  var pullOutFrameStep = 4;                         // How many pixels to move a slice with each animation frame
+  var pullOutFrameInterval = 20;                    // How long (in ms) between each animation frame
+  var pullOutLabelPadding =50;                     // 字距离  
+  var pullOutLabelFont = "bold 16px 'Trebuchet MS', Verdana, sans-serif";  // Pull-out slice label font
+  var pullOutValueFont = "bold 12px 'Trebuchet MS', Verdana, sans-serif";  // Pull-out slice value font
+  var pullOutValuePrefix = "";                     // Pull-out slice value prefix
+  var pullOutShadowColour = "rgba( 0, 0, 0, .5 )";  // Colour to use for the pull-out slice shadow
+  var pullOutShadowOffsetX = 5;                     // X-offset (in pixels) of the pull-out slice shadow
+  var pullOutShadowOffsetY = 5;                     // Y-offset (in pixels) of the pull-out slice shadow
+  var pullOutShadowBlur = 5;                        // How much to blur the pull-out slice shadow
+  var pullOutBorderWidth = 2;                       // Width (in pixels) of the pull-out slice border
+  var pullOutBorderStyle = "#333";                  // Colour of the pull-out slice border
+  var chartStartAngle = -.5 * Math.PI;              // Start the chart at 12 o'clock instead of 3 o'clock
+  var canvas;                       // The canvas element in the page
+  var currentPullOutSlice = -1;     // The slice currently pulled out (-1 = no slice)
+  var currentPullOutDistance = 0;   // How many pixels the pulled-out slice is currently pulled out in the animation
+  var animationId = 0;              // Tracks the interval ID for the animation created by setInterval()
+  var chartData = [];               // Chart data (labels, values, and angles)
+  var chartColours = [];            // Chart colours (pulled from the HTML table)
+  var totalValue = 0;               // Total of all the values in the chart
+  var canvasWidth;                  // Width of the canvas, in pixels
+  var canvasHeight;                 // Height of the canvas, in pixels
+  var centreX;                      // X-coordinate of centre of the canvas/chart
+  var centreY;                      // Y-coordinate of centre of the canvas/chart
+  var chartRadius;                 
+  init();
+  function init() {
+    canvas = document.getElementById('chart');
+    if ( typeof canvas.getContext === 'undefined' ) return;
+    canvasWidth = canvas.width;
+    canvasHeight = canvas.height;
+    centreX = canvasWidth / 2;
+    centreY = canvasHeight / 2;
+    chartRadius = Math.min( canvasWidth, canvasHeight ) / 2 * ( chartSizePercent / 100 );
+    var currentRow = -1;
+    var currentCell = 0;
+    $('#chartData td').each( function() {
+      currentCell++;
+      if ( currentCell % 2 != 0 ) {
+        currentRow++;
+        chartData[currentRow] = [];
+        chartData[currentRow]['label'] = $(this).text();
+      } else {
+       var value = parseFloat($(this).text());
+       totalValue += value;
+       value = value.toFixed(2);
+       chartData[currentRow]['value'] = value;
+      }
+      $(this).data( 'slice', currentRow );
+      $(this).click( handleTableClick );
+      if ( rgb = $(this).css('color').match( /rgb\((\d+), (\d+), (\d+)/) ) {
+        chartColours[currentRow] = [ rgb[1], rgb[2], rgb[3] ];
+      } else if ( hex = $(this).css('color').match(/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/) ) {
+        chartColours[currentRow] = [ parseInt(hex[1],16) ,parseInt(hex[2],16), parseInt(hex[3], 16) ];
+      } else {
+        alert( "Error: Colour could not be determined! Please specify table colours using the format '#xxxxxx'" );
+        return;
+      }
+    } );
+    var currentPos = 0; // The current position of the slice in the pie (from 0 to 1)
+    for ( var slice in chartData ) {
+      chartData[slice]['startAngle'] = 2 * Math.PI * currentPos;
+      chartData[slice]['endAngle'] = 2 * Math.PI * ( currentPos + ( chartData[slice]['value'] / totalValue ) );
+      currentPos += chartData[slice]['value'] / totalValue;
+    }
+    drawChart();
+    $('#chart').click ( handleChartClick );
+  }
+  function handleChartClick ( clickEvent ) {
+    var mouseX = clickEvent.pageX - this.offsetLeft;
+    var mouseY = clickEvent.pageY - this.offsetTop;
+    var xFromCentre = mouseX - centreX;
+    var yFromCentre = mouseY - centreY;
+    var distanceFromCentre = Math.sqrt( Math.pow( Math.abs( xFromCentre ), 2 ) + Math.pow( Math.abs( yFromCentre ), 2 ) );
+    if ( distanceFromCentre <= chartRadius ) {
+      var clickAngle = Math.atan2( yFromCentre, xFromCentre ) - chartStartAngle;
+      if ( clickAngle < 0 ) clickAngle = 2 * Math.PI + clickAngle;
+      for ( var slice in chartData ) {
+        if ( clickAngle >= chartData[slice]['startAngle'] && clickAngle <= chartData[slice]['endAngle'] ) {
+          toggleSlice ( slice );
+          return;
+        }
+      }
+    }
+    pushIn();
+  }
+  function handleTableClick ( clickEvent ) {
+    var slice = $(this).data('slice');
+    toggleSlice ( slice );
+  }
+  function toggleSlice ( slice ) {
+    if ( slice == currentPullOutSlice ) {
+      pushIn();
+    } else {
+      startPullOut ( slice );
+    }
+  }
+  function startPullOut ( slice ) {
+    if ( currentPullOutSlice == slice ) return;
+    currentPullOutSlice = slice;
+    currentPullOutDistance = 0;
+    clearInterval( animationId );
+    animationId = setInterval( function() { animatePullOut( slice ); }, pullOutFrameInterval );
+    $('#chartData td').removeClass('highlight');
+    var labelCell = $('#chartData td:eq(' + (slice*2) + ')');
+    var valueCell = $('#chartData td:eq(' + (slice*2+1) + ')');
+    labelCell.addClass('highlight');
+    valueCell.addClass('highlight');
+  }
+  function animatePullOut ( slice ) {
+    currentPullOutDistance += pullOutFrameStep;
+    if ( currentPullOutDistance >= maxPullOutDistance ) {
+      clearInterval( animationId );
+      return;
+    }
+    drawChart();
+  }
+  function pushIn() {
+    currentPullOutSlice = -1;
+    currentPullOutDistance = 0;
+    clearInterval( animationId );
+    drawChart();
+    $('#chartData td').removeClass('highlight');
+  }
+  function drawChart() {
+    var context = canvas.getContext('2d');
+    context.clearRect ( 0, 0, canvasWidth, canvasHeight );
+    for ( var slice in chartData ) {
+      if ( slice != currentPullOutSlice ) drawSlice( context, slice );
+    }
+    if ( currentPullOutSlice != -1 ) drawSlice( context, currentPullOutSlice );
+  }
+  function drawSlice ( context, slice ) {
+    var startAngle = chartData[slice]['startAngle']  + chartStartAngle;
+    var endAngle = chartData[slice]['endAngle']  + chartStartAngle;
+    if ( slice == currentPullOutSlice ) {
+      var midAngle = (startAngle + endAngle) / 2;
+      var actualPullOutDistance = currentPullOutDistance * easeOut( currentPullOutDistance/maxPullOutDistance, .8 );
+      startX = centreX + Math.cos(midAngle) * actualPullOutDistance;
+      startY = centreY + Math.sin(midAngle) * actualPullOutDistance;
+      context.fillStyle = 'rgb(' + chartColours[slice].join(',') + ')';
+      context.textAlign = "center";
+      context.font = pullOutLabelFont;
+      context.fillText( chartData[slice]['label'], centreX + Math.cos(midAngle) * ( chartRadius + maxPullOutDistance + pullOutLabelPadding ), centreY + Math.sin(midAngle) * ( chartRadius + maxPullOutDistance + pullOutLabelPadding ) );
+      context.font = pullOutValueFont;
+      context.fillText( pullOutValuePrefix + chartData[slice]['value'] + " (" + ( parseInt( chartData[slice]['value'] / totalValue * 100 + .5 ) ) +  "%)", centreX + Math.cos(midAngle) * ( chartRadius + maxPullOutDistance + pullOutLabelPadding ), centreY + Math.sin(midAngle) * ( chartRadius + maxPullOutDistance + pullOutLabelPadding ) + 20 );
+      context.shadowOffsetX = pullOutShadowOffsetX;
+      context.shadowOffsetY = pullOutShadowOffsetY;
+      context.shadowBlur = pullOutShadowBlur;
+    } else {
+      startX = centreX;
+      startY = centreY;
+    }
+    var sliceGradient = context.createLinearGradient( 0, 0, canvasWidth*.75, canvasHeight*.75 );
+    sliceGradient.addColorStop( 0, sliceGradientColour );
+    sliceGradient.addColorStop( 1, 'rgb(' + chartColours[slice].join(',') + ')' );
+    context.beginPath();
+    context.moveTo( startX, startY );
+    context.arc( startX, startY, chartRadius, startAngle, endAngle, false );
+    context.lineTo( startX, startY );
+    context.closePath();
+    context.fillStyle = sliceGradient;
+    context.shadowColor = ( slice == currentPullOutSlice ) ? pullOutShadowColour : "rgba( 0, 0, 0, 0 )";
+    context.fill();
+    context.shadowColor = "rgba( 0, 0, 0, 0 )";
+    if ( slice == currentPullOutSlice ) {
+      context.lineWidth = pullOutBorderWidth;
+      context.strokeStyle = pullOutBorderStyle;
+    } else {
+      context.lineWidth = sliceBorderWidth;
+      context.strokeStyle = sliceBorderStyle;
+    }
+    context.stroke();
+  }
+  function easeOut( ratio, power ) {
+    return ( Math.pow ( 1 - ratio, power ) + 1 );
+  }
+};
+</script>
+</head>
+<body>
+	<div class="list-title">
+		<a th:href="@{/index}">
+			<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;数据统计
+		</a>
+		<div class="Icon">
+            <i class="fa fa-power-off"></i>
+        </div>
+	</div>
+	<div id="container">
+		<div class="text">用户信息实时统计饼状图</div>
+		<div class="present">
+			活跃数据统计：<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			注册总人数：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">231人</span><br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			今日活跃数：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">163人</span>
+		</div>
+	  <canvas id="chart" width="350" height="240"></canvas>
+	  <table id="chartData">
+	    <tr>
+	      <th>数据种类</th><th>数量</th>
+	    </tr>
+	    <tr style="color: #ED5713">
+	      <td>商品发布</td><td>133</td>
+	    </tr>
+	    <tr style="color: #ED9C13">
+	      <td>需求发布</td><td>67</td>
+	    </tr>
+	    <tr style="color: #057249">
+	      <td>成交数量</td><td>32</td>
+	    </tr>
+	  </table>
+        <script>
+            $(".Icon").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/user/cancellation",
+                    success:function () {
+                        location="/index";
+                    }
+                })
+            });
+        </script>
+	</div>
+</body>
+</html>
+

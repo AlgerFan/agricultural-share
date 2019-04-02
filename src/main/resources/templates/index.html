@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>农资共享</title>
+    <link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+    <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
+</head>
+<body>
+<div class="order_details">
+    <ul>
+        <li class="fortab prepaids checked"><i class="fa fa-home fa-2x"></i><br/>首页</li>
+        <li class="fortab prepaids2"><i class="fa fa-commenting fa-2x"></i><br/>需求列表</li>
+        <div class="circle" th:if="${session.user!=null && session.user.getRecommended()==1}"></div>
+        <li class="fortab prepaids3"><i class="fa fa-user fa-2x"></i><br/>个人中心</li>
+    </ul>
+</div>
+<div class="list">
+    <!--首页-->
+    <div class="tablelist showdomdiv showsss home">
+        <div class="user-title redtop white">
+            农资共享
+            <div class="Icon whiteborder">
+                <i class="fa fa-power-off"></i>
+            </div>
+        </div>
+        <div class="search">
+            <a th:href="@{/message/allMessageList}">
+                <div class="classification">
+                    <i class="fa fa-list"></i>
+                </div>
+            </a>
+            <form th:action="@{/message/searchMessageList}" method="post" enctype="multipart/form-data" class="forrm">
+                <input type="text" name="title" class="searchpr"/>
+                <input type="submit" style="display: none;" class="tolist"/>
+            </form>
+            <div class="touser">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+        <div class="allicon">
+
+            <div th:if="${session.user != null}"><a th:href="@{/message}"><img class="little location1"
+                                                                               th:src="@{/images/icon2.png}"></a><br/>发布农资
+            </div>
+            <div th:if="${session.user == null}"><a th:href="@{/user/toLogin}"><img class="little location1"
+                                                                                    th:src="@{/images/icon2.png}"></a><br/>发布农资
+            </div>
+            <div th:if="${session.user != null}"><a th:href="@{/admin/category/findOneCategory}"><img
+                    class="little location2" th:src="@{/images/icon3.png}"/></a><br/>需求发布
+            </div>
+            <div th:if="${session.user == null}"><a th:href="@{/user/toLogin}"><img class="little location2"
+                                                                                    th:src="@{/images/icon3.png}"/></a><br/>发布需求
+            </div>
+            <div><a th:href="@{/needkind}"><img class="little location3" th:src="@{/images/icon4.png}"/></a><br/>需求列表</div>
+            <div><a th:href="@{/message/searchMessageList(title=农药)}"><img class="little location4"
+                                                                           th:src="@{/images/icon5.png}"/></a><br/>农药
+            </div>
+            <div><a th:href="@{/message/searchMessageList(title=土地)}"><img class="little location5"
+                                                                           th:src="@{/images/icon6.png}"/></a><br/>土地
+            </div>
+            <div><a th:href="@{/message/searchMessageList(title=种子)}">
+                <img class="little location6" th:src="@{/images/icon7.png}"/></a><br/>种子
+            </div>
+            <div><a th:href="@{/message/searchMessageList(title=农机)}">
+                <img class="little location7" th:src="@{/images/icon8.png}"/></a><br/>农机
+            </div>
+            <div><a th:href="@{/message/searchMessageList(title=农膜)}">
+                <img class="little location8" th:src="@{/images/icon9.png}"/></a><br/>农膜
+            </div>
+            <div><a th:href="@{/message/searchMessageList(title=化肥)}">
+                <img class="little location9" th:src="@{/images/icon0.png}"/></a><br/>化肥
+            </div>
+            <div><a th:href="@{/message/searchMessageList(title=调节剂)}">
+                <img class="little location0" th:src="@{/images/icon1.png}"/></a><br/>调节剂
+            </div>
+        </div>
+        <div class="today">
+            <div class="today-title">农资<br/>头条</div>
+            <div class="today-text">
+                <div class="today-text-long">
+                    <div class="new" th:each="headline : ${headlineList}">
+                        <span class="label" th:text="${headline.type}">热门</span><span th:text="${headline.content}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="imgdiv">
+            <div class="back"></div>
+            <div class="img" style="background-position: 0% 0;left: 0;"></div>
+            <div class="img" style="background-position: 5% 0;left: 5%;"></div>
+            <div class="img" style="background-position: 10% 0;left: 10%;"></div>
+            <div class="img" style="background-position: 15% 0;left: 15%;"></div>
+            <div class="img" style="background-position: 20% 0;left: 20%;"></div>
+            <div class="img" style="background-position: 25% 0;left: 25%;"></div>
+            <div class="img" style="background-position: 30% 0;left: 30%;"></div>
+            <div class="img" style="background-position: 35% 0;left: 35%;"></div>
+            <div class="img" style="background-position: 40% 0;left: 40%;"></div>
+            <div class="img" style="background-position: 45% 0;left: 45%;"></div>
+            <div class="img" style="background-position: 50% 0;left: 50%;"></div>
+            <div class="img" style="background-position: 55% 0;left: 55%;"></div>
+            <div class="img" style="background-position: 60% 0;left: 60%;"></div>
+            <div class="img" style="background-position: 65% 0;left: 65%;"></div>
+            <div class="img" style="background-position: 70% 0;left: 70%;"></div>
+            <div class="img" style="background-position: 75% 0;left: 75%;"></div>
+            <div class="img" style="background-position: 80% 0;left: 80%;"></div>
+            <div class="img" style="background-position: 85% 0;left: 85%;"></div>
+            <div class="img" style="background-position: 90% 0;left: 90%;"></div>
+            <div class="img" style="background-position: 95% 0;left: 95%;"></div>
+        </div>
+        <div class="guess">最新发布</div>
+        <div class="recommend">
+            <div th:each="message : ${messagesTwo}" th:if="${message.price != null}">
+                <a th:href="@{/browse(messageId=${message.messageId})}">
+                    <div class="goods-img">
+                        <img th:src="${'/Path'+message.mainPictureUrl}"/>
+                    </div>
+                    <div class="goods-right">
+                        <div class="goods-title" th:text="${message.title}">美丽家园土地</div>
+                        <div class="goods-keywords" th:text="${message.address}">新乡市牧野区都市村庄</div>
+                        <div class="goods-keywords" th:text="${message.phone}">134****3454</div>
+                        <div class="goods-money">
+                            <span th:text="${message.price}"></span>
+                            <span class="goods-time" th:text="${message.buildDate}">07-20</span>
+                        </div>
+                    </div>
+                </a>
+                <a th:href="'tel:'+${message.phone}"><div class="goods-phone"><i class="fa fa-phone"></i></div></a>
+            </div>
+        </div>
+    </div>
+    <!--需求列表模块-->
+    <div class="tablelist hidedomdiv showsss news">
+        <div class="list-title">
+            <a style="line-height: 60px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;需求列表
+            </a>
+            <div class="Icon" style="line-height: 60px;">
+                <i class="fa fa-power-off"></i>
+            </div>
+        </div>
+        <div class="recommend">
+            <div th:each="messa : ${messages}">
+                <!--<a th:href="@{/browse(messageId=${messa.messageId})}">-->
+                    <div class="goods-img">
+                        <img th:src="${'/Path'+messa.mainPictureUrl}" th:if="${messa.mainPictureUrl != null}"/>
+                        <span th:if="${messa.mainPictureUrl == null}">我的<br/>需求</span>
+                    </div>
+                    <div class="goods-right">
+                        <div class="goods-title" th:text="${messa.title}">中小型小麦收割机</div>
+                        <div class="goods-keywords" th:text="${messa.address}">濮阳市台前县杨井村</div>
+                        <div class="goods-keywords" th:text="${messa.phone}">182****0281</div>
+                        <div class="goods-money">
+                            <span class="goods-time" th:text="${messa.buildDate}">07-20</span>
+                        </div>
+                    </div>
+                    <a th:href="'tel:'+${messa.phone}"><div class="goods-phone"><i class="fa fa-phone"></i></div></a>
+                <!--</a>-->
+            </div>
+        </div>
+    </div>
+    <!--个人中心模块-->
+    <div class="tablelist hidedomdiv showsss user">
+        <div class="user-title">
+            个人中心
+            <div class="Icon">
+                <i class="fa fa-power-off"></i>
+            </div>
+        </div>
+        <div class="bgm" th:if="${session.user != null}">
+            <img th:src="'/Path'+${session.user.userAvatar}" alt=""/>
+            <div class="user-information">
+                <div class="user-img">
+                    <img th:src="'/Path'+${session.user.userAvatar}" alt=""/>
+                </div>
+                <div class="user-name" th:text="${session.user.userName}">
+                    name
+                </div>
+            </div>
+        </div>
+        <div class="bgm" th:if="${session.user == null}">
+            <img th:src="@{/images/title.jpg}" alt=""/>
+            <div class="user-information">
+                <div class="user-img">
+                    <img th:src="@{/images/tx.png}" alt=""/>
+                </div>
+                <a th:href="@{/user/toLogin}">
+                    <div class="user-name">
+                        点我登录
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="nav">
+            <div>
+                <a th:href="@{/user/set}" style="color: #000000;text-decoration: none;">
+                    <i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;个人信息
+                    <div class="right"><i class="fa fa-chevron-right"></i></div>
+                </a>
+            </div>
+            <div th:if="${session.user != null}">
+                <a th:href="@{/collect/userCollect}" style="color: #000000;text-decoration: none;">
+                    <i class="fa fa-star-o"></i>&nbsp;&nbsp;&nbsp;我的收藏
+                    <div class="right"><i class="fa fa-chevron-right"></i></div>
+                </a>
+            </div>
+            <div th:if="${session.user == null}">
+                <a th:href="@{/user/toLogin}" style="color: #000000;text-decoration: none;">
+                    <i class="fa fa-star-o"></i>&nbsp;&nbsp;&nbsp;我的收藏
+                    <div class="right"><i class="fa fa-chevron-right"></i></div>
+                </a>
+            </div>
+            <div th:if="${session.user != null}">
+                <a th:href="@{/browse/findUserAllBrowse}" style="color: #000000;text-decoration: none;">
+                    <i class="fa fa-blind"></i>&nbsp;&nbsp;&nbsp;我的足迹
+                    <div class="right"><i class="fa fa-chevron-right"></i></div>
+                </a>
+            </div>
+            <div th:if="${session.user == null}">
+                <a th:href="@{/user/toLogin}" style="color: #000000;text-decoration: none;">
+                    <i class="fa fa-blind"></i>&nbsp;&nbsp;&nbsp;我的足迹
+                    <div class="right"><i class="fa fa-chevron-right"></i></div>
+                </a>
+            </div>
+            <div th:if="${session.user != null}">
+                <a th:href="@{/message/person}">
+                    <i class="fa fa-glide-g"></i>&nbsp;&nbsp;&nbsp;个人发布
+                    <div class="right"><i class="fa fa-chevron-right"></i></div>
+                </a>
+            </div>
+            <div th:if="${session.user == null}">
+                <a th:href="@{/user/toLogin}">
+                    <i class="fa fa-glide-g"></i>&nbsp;&nbsp;&nbsp;个人发布
+                    <div class="right"><i class="fa fa-chevron-right"></i></div>
+                </a>
+            </div>
+            <div th:if="${session.user != null}">
+                <a th:href="@{/message/recommended}">
+                    <i class="fa fa-envelope-open-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;个性推荐
+                    <div class="circleTwo" th:if="${session.user.getRecommended()==1}"></div>
+                    <div class="right"><i class="fa fa-chevron-right"></i></div>
+                </a>
+            </div>
+            <div th:if="${session.user == null}">
+                <a th:href="@{/user/toLogin}">
+                    <i class="fa fa-envelope-open-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;个性推荐
+                    <div class="right"><i class="fa fa-chevron-right"></i></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

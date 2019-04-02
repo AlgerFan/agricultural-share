@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>我的收藏</title>
+	<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/collection.css}"/>
+	<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+	<script type="text/javascript" th:src="@{/js/collection.js}"></script>
+</head>
+<body>
+	<div class="list-title">
+		<a th:href="@{/index}">
+			<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;我的收藏
+		</a>
+		<div class="Icon">
+            <i class="fa fa-trash"></i>
+        </div>
+	</div>
+	<div class="allcoll">
+		<div th:each="collect : ${messages}" th:if="${collect!=null}">
+			<a th:href="@{/browse(messageId=${collect.messageId})}">
+				<div class="all-img">
+					<img th:src="'/Path'+${collect.mainPictureUrl}" />
+				</div>
+			</a>
+			<div class="collectid" style="display: none;"></div>
+			<div class="goods-right">
+				<div class="goods-title" th:text="${collect.title}">中小型小麦收割机</div>
+				<div class="goods-keywords" th:text="${collect.address}">濮阳市台前县杨井村</div>
+				<div class="goods-keywords" th:text="${collect.phone}">182****0281</div>
+				<div class="goods-money">
+					<span th:text="${collect.price}">150元/天</span>
+					<span class="goods-time" th:text="${collect.buildDate}">07-20</span>
+				</div>
+				<div class="goods-cz">…</div>
+				<div class="goods-phone2"><i class="fa fa-phone"></i></div>
+				<div class="goods-phone1"><i class="fa fa-trash"></i></div>
+                <input type="hidden" th:value="${collect.clicks}">
+			</div>
+		</div>
+	</div>
+    <input style="display: none;" type="text" th:value="123">
+</body>
+</html>

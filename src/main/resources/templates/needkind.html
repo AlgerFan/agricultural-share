@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,
+		minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>用户需求</title>
+	<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+	<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+	<link rel="stylesheet" th:href="@{/css/tinyImgUpload.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/needkind.css}"/>
+	<script type="text/javascript" th:src="@{/js/needkind.js}"></script>
+</head>
+<body>
+	<div class="list-title">
+		<a th:href="@{/index}">
+			<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;用户需求
+		</a>
+		<div class="Icon">
+            <i class="fa fa-power-off"></i>
+        </div>
+	</div>
+	<div class="title">
+		<img th:src="@{/images/title.jpg}" alt="" />
+		<div class="title-icon">
+			<img th:src="@{/images/logo1.png}" alt="" />
+		</div>
+		<input type="text" class="ipt" placeholder="请输入所需需求种类"/>
+	</div>
+	<div class="allplants" th:each="cate:${categoryOne}">
+		<div class="allplants1" th:text="${cate.categoryName}">农药</div>
+		<a th:href="'/findDemandByCategory?category=' + ${catetories.categoryName} " th:each="catetories:${categoryTwo}" th:if="${catetories.parentName==cate.categoryName}">
+			<div class="allplants2" th:text="${catetories.categoryName}"></div>
+		</a>
+	</div>
+</body>
+</html>

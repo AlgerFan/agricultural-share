@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,
+		minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>商品发布</title>
+	<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+	<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+	<link rel="stylesheet" th:href="@{/css/tinyImgUpload.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/own.css}"/>
+	<script type="text/javascript" th:src="@{/js/own.js}"></script>
+</head>
+<body>
+	<div class="list-title">
+		<a th:href="@{/index}">
+			<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;商品发布
+		</a>
+        <div class="Icon">
+            <i class="fa fa-power-off"></i>
+        </div>
+	</div>
+	<div class="select">选择种类</div>
+	<div class="allse">
+        <div class="alls2" th:each="cate:${categories}" th:text="${cate.categoryName}" th:if="${cate.categoryShow != 1}">农药</div>
+	</div>
+    <form action="/message" method="post" enctype="multipart/form-data">
+        <div class="ownx">
+            <div>
+                <div class="ownxleft">姓名</div>
+                <input class="ownxright userName" name="userName" type="text" placeholder="请输入您的姓名"/>
+            </div>
+            <div>
+                <div class="ownxleft">电话</div>
+                <input class="ownxright userphone" name="phone" type="text" placeholder="请输入您的联系方式"/>
+            </div>
+            <div>
+                <div class="ownxleft">位置</div>
+                <input class="ownxright" name="address" type="text" placeholder="请输入您的商品地址"/>
+            </div>
+            <div>
+                <div class="ownxleft">价格</div>
+                <input class="ownxright" name="price" type="text" placeholder="请输入商品价格"/>
+            </div>
+            <div>
+                <div class="ownxleft">商品种类</div>
+                <!--<input type="text" style="display: none" name="parentType">-->
+                <input class="ownxright select1 kind" name="sonType" readonly="readonly" type="text" placeholder="请选择商品的种类"/>
+            </div>
+            <div>
+                <div class="ownxleft">标题</div>
+                <input class="ownxright" name="title" type="text" placeholder="请输入您发布商品的标题"/>
+            </div>
+            <div>
+                <div class="ownxleft">详细信息</div>
+                <input class="ownxright" name="content" type="text" placeholder="请输入商品的详细信息"/>
+            </div>
+        </div>
+        <div id="upload">
+        </div>
+        <script th:src="@{js/tinyImgUpload.js}"></script>
+        <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth*0.1+'px';
+        var options = {
+            path: '/',
+            onSuccess: function (res) {
+                console.log(res);
+            },
+            onFailure: function (res) {
+                console.log(res);
+            }
+        };
+        var upload = tinyImgUpload('#upload',options);
+        document.getElementsByClassName('submit')[0].onclick=function(e){
+            upload();
+        }
+        </script>
+        <input type="submit" class="yes" value="上传" />
+    </form>
+    <div class="remind">请求失败</div>
+</body>
+</html>

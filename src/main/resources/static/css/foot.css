@@ -1,0 +1,140 @@
+body,html{
+	margin: 0;
+	padding: 0;
+	background-color: #FAFAFA;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.list-title{
+	width: 94%;
+	height: 60px;
+	line-height: 60px;
+	padding:0 3%;
+	z-index: 7;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+.Icon{
+    width: 30px;
+    height: 50px;
+    float: right;
+    text-align: center;
+    animation:myfirst 4s;
+    animation-iteration-count:infinite;
+}
+@keyframes myfirst{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+.allcoll{
+	width: 100%;
+	height: auto;
+	margin-top: 60px;
+    overflow: hidden
+}
+.allcoll .coll{
+	width: 47%;
+	height: 135px;
+	margin: 1.5% auto;
+	float: left;
+	background-color: white;
+}
+.goods-img{
+	width: 90%;
+	height: 100px;
+	padding: 5%;
+	display: block;
+}
+.goods-img>img{
+	width: 100%;
+	height: 100%;
+	border-radius: 3px;
+}
+.goods-money{
+	width: 90%;
+	height: 20px;
+	line-height: 20px;
+	font-size: 10px;
+	padding:0 5%;
+    overflow: hidden;
+}
+.allle{
+	overflow: hidden;
+    width: 80%;
+    height:20px ;
+    display: block;
+    float: left;
+    color: #ff0036;
+}
+.allx{
+    width: 20%;
+    height:20px ;
+    float: right;
+    text-align: right;
+}
+.block{
+	display: block;
+}
+.none{
+	display: none;
+}
+.black{
+	width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.5);
+    z-index: 99;
+    position: fixed;
+    top: 0px;
+    left: 0;
+}
+.bottom{
+	width: 100%;
+	height: 140px;
+	position: fixed;
+	bottom: -100%;
+	z-index: 100;
+    transition: all 0.5s;
+	background-color: gainsboro;
+}
+.allcz{
+	width: 210px;
+	margin: 0 auto;
+	height: 90px;
+	background-color: gainsboro;
+}
+.quxiao{
+	width: 100%;
+	height: 110px;
+	line-height: 50px;
+	text-align: center;
+	color: black;
+	background-color: white;
+}
+.tubiao{
+	width: 50px;
+	height: 70px;
+	float: left;
+	margin: 0 10px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 12px;
+}
+.icon{
+	width: 40px;
+	height: 40px;
+	margin: 10px 5px 0 5px;
+	background-color: white;
+	text-align: center;
+	color: gray;
+	font-size: 25px;
+	line-height: 40px;
+}
+.clear{
+    clear: both;
+}

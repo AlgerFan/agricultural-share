@@ -1,0 +1,304 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.block {
+    display: block;
+}
+
+.none {
+    display: none;
+}
+
+.list-title {
+    width: 94%;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 3%;
+    z-index: 7;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+
+.Icon {
+    width: 30px;
+    height: 50px;
+    float: right;
+    text-align: center;
+    animation: myfirst 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes myfirst {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.allneed {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.allneeds {
+    width: 48%;
+    height: 100px;
+    margin: 1%;
+    background-color: white;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.name {
+    width: 92%;
+    height: 25px;
+    line-height: 25px;
+    position: absolute;
+    padding: 0 4%;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.address {
+    width: 92%;
+    height: 22px;
+    line-height: 22px;
+    position: absolute;
+    padding: 0 4%;
+    font-size: 12px;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.phone {
+    width: 92%;
+    height: 22px;
+    line-height: 22px;
+    position: absolute;
+    padding: 0 4%;
+    font-size: 12px;
+    top: 47px;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.need {
+    width: 92%;
+    height: 22px;
+    line-height: 22px;
+    position: absolute;
+    padding: 0 4%;
+    font-size: 12px;
+    top: 69px;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.needs {
+    font-size: 15px;
+    color: red;
+}
+.deleteneed{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 10%;
+    height: 20px;
+    background-color: #f68a45;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+}
+.operate {
+    width: 30px;
+    height: 100px;
+    background-color: #f68a45;
+    position: absolute;
+    top: 0;
+    transition: 0.2s;
+    opacity: 0.8;
+    overflow: hidden;
+    right: -30px;
+}
+
+.change {
+    width: 20px;
+    height: 36px;
+    margin: 7px 5px;
+    position: absolute;
+    color: white;
+    border: solid 1px white;
+    font-size: 10px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+}
+
+.delete {
+    width: 20px;
+    height: 36px;
+    margin: 7px 5px;
+    position: absolute;
+    color: white;
+    border: solid 1px white;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 18px;
+    top: 50%;
+    left: 0;
+}
+
+
+/*用户添加*/
+
+.user-add {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #e2dddd;
+    box-shadow: 1px 5px 5px #f1be2e;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+}
+
+
+/*点击搜索*/
+
+.user-search {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    border: 1px solid #e2dddd;
+    box-shadow: 1px 5px 5px #f1be2e;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.user-a {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    height: 60px;
+    width: 20%;
+}
+
+.top {
+    margin-top: 20px;
+    width: 100%;
+    position: fixed;
+    top: 80px;
+    z-index: 101;
+}
+
+
+/*头部搜索*/
+
+.top-sech {
+    width: 0px;
+    margin: 0px auto;
+    height: 0px;
+    overflow: hidden;
+    border: 1px solid #e2dddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 5px 5px #e2dddd;
+    transition: all 0.5s;
+}
+
+.top-sech input {
+    padding-left: 20px;
+    display: inline-block;
+    vertical-align: top;
+    width: 70%;
+    height: 30px;
+    border: none;
+}
+
+.top-sech .top-searchs {
+    float: right;
+    width: 20%;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+}
+
+.searchback {
+    background-color: #999;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 99;
+}
+
+input {
+    outline: none;
+}
+/*分页*/
+.fenye{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 60px;
+}
+.fenye ul{
+    width: 90%;
+    margin: 5px auto;
+    line-height: 30px;
+}
+.fenye ul li{
+    float: left;
+    width: 40px;
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+}
+.fenye ul li a{
+    color: #555;
+}
+.fenye ul li > .active{
+    color: red;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>管理员修改信息</title>
+	<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/changemanage.css}"/>
+	<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+	<script type="text/javascript" th:src="@{/js/changemanage.js}"></script>
+</head>
+<body>
+    <div class="list-title">
+        <a th:href="@{/adminindex}">
+            <i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;管理员修改信息
+        </a>
+        <div class="Icon">
+            <i class="fa fa-power-off"></i>
+        </div>
+    </div>
+	<div class="user-img">
+		<img class="imgs" th:src="'/Path'+${session.adminUser.userAvatar}"/>
+	</div>
+    <form action="">
+        <div class="allmessage">
+            <div>
+                <div class="title">用户名:</div>
+                <input type="text" class="ipt" name="" th:value="${session.adminUser.userName}" />
+            </div>
+            <div>
+                <div class="title">密码:</div>
+                <input type="text" class="ipt" name="" th:value="${session.adminUser.userPassword}" />
+            </div>
+            <div>
+                <div class="title">手机号:</div>
+                <input type="text" class="ipt" name="" th:value="${session.adminUser.userPhone}" />
+            </div>
+            <input type="file" name="" class="none file">
+            <input type="submit" class="none tijiao">
+        </div>
+    </form>
+	<div class="button">
+		<div class="btn">确认修改</div>
+		<a th:href="@{/adminindex}"><div class="btn">取消</div></a>
+	</div>
+</body>
+</html>

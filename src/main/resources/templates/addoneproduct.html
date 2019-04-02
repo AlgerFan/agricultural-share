@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>添加一级分类</title>
+		<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/addoneproduct.css}" />
+		<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+		<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+		<script type="text/javascript" th:src="@{/js/addoneproduct.js}"></script>
+	</head>
+	<body>
+		<div class="list-title">
+			<a th:href="@{/admin/category/productCategoryList}">
+				<i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;添加一级分类
+			</a>
+			<div class="Icon">
+				<i class="fa fa-power-off"></i>
+			</div>
+		</div>
+		<div class="user-img">
+			<img th:src="@{/images/logo1.png}"/>
+		</div>
+		<div class="allipt">
+			<div>
+				<div class="ipttitle">分类名称</div>
+				<input type="text" class="ipt ipt1" />
+			</div>
+		</div>
+		<div class="allipt1">
+			<div>
+				<div class="ipttitle">价格单位</div>
+				<input type="text" class="ipt ipt2" />
+			</div>
+		</div>
+        <div class="allipt1">
+			<div>
+				<div class="ipttitle">主页是否显示</div>
+				<input type="text" class="ipt ipt3" placeholder=" 1 表示显示 0 表示不显示" />
+			</div>
+		</div>
+		<div class="button">
+			<div class="btn">添加</div>
+			<a th:href="@{/admin/category/productCategoryList}"><div class="btn">取消</div></a>
+		</div>
+	</body>
+	
+</html>

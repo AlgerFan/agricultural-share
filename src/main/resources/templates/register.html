@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>用户注册</title>
+		<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.css}" />
+		<link rel="stylesheet" th:href="@{/css/register.css}" />
+	</head>
+	<body>
+		<div class="list-title">
+			<a th:href="@{/user/toLogin}">
+                <i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;用户注册
+            </a>
+		</div>
+		<div class="top">
+			<div class="loginpho">
+				<img th:src="@{/images/logo1.png}" />
+			</div>
+            <form th:action="@{/user/registered}" method="post"  onsubmit="return check()">
+                <!--<div class="loginname">-->
+                    <!--<div class="loginname-left">-->
+                        <!--<input name="userPhone" class="phonenum" maxlength="11" placeholder="请输入手机号" />-->
+                        <!--<p class="logintext">1234565789</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="loginnum">
+                    <input name="userPhone" class="phonenum" maxlength="11" placeholder="请输入手机号" />
+                    <p class="logintext nump"></p>
+                </div>
+                <div class="loginnum">
+                    <input class="passWord" placeholder="请输入6-16位密码" type="password" maxlength="16" />
+                    <p class="logintext"></p>
+                </div>
+                <div class="loginnum">
+                    <input name="userPassword" class="passWords" placeholder="请再次输入密码" type="password" maxlength="16" />
+                    <p class="logintext passp"></p>
+                </div>
+                <div class="loginnum">
+                    <input name="userName" class="userName" placeholder="请输入你的昵称，注册成功后将不可更改。" maxlength="16" />
+                    <p class="logintext namep"></p>
+                </div>
+                <input class="usersub" type="submit" style="display: none">
+            </form>
+			<a>
+				<div class="login">确认注册</div>
+			</a>
+			<div class="clear"></div>
+		</div>
+		<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+		<script type="text/javascript" th:src="@{/js/register.js}"></script>
+	</body>
+</html>

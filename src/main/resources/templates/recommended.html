@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+		minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>个性推荐</title>
+    <link rel="Shortcut Icon" th:href="@{/images/01.icon}">
+    <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    <link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/announcement.css}"/>
+    <script type="text/javascript" th:src="@{/js/announcement.js}"></script>
+</head>
+<body>
+<div class="list-title">
+    <a th:href="@{/index}">
+        <i class="fa fa-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;个性推荐
+    </a>
+    <div class="Icon">
+        <i class="fa fa-power-off"></i>
+    </div>
+</div>
+<div class="recommend">
+    <div th:each="message : ${messages}">
+        <a th:href="@{/browse(messageId=${message.messageId})}">
+            <div class="goods-img">
+                <img th:src="${'/Path'+message.mainPictureUrl}" th:if="${message.mainPictureUrl != null}"/>
+                <span th:if="${message.mainPictureUrl == null}">我的<br/>需求</span>
+            </div>
+            <div class="goods-right">
+                <div class="goods-title" th:text="${message.title}">美丽家园土地</div>
+                <div class="goods-keywords" th:text="${message.address}">新乡市牧野区都市村庄</div>
+                <div class="goods-keywords" th:text="${message.phone}">134****3454</div>
+                <div class="goods-money">
+                    <span th:text="${message.price}">700元/亩*年</span>
+                    <span class="goods-time" th:text="${message.buildDate}">07-20</span>
+                </div>
+            </div>
+        </a>
+        <div class="goods-phone"><i class="fa fa-phone"></i></div>
+    </div>
+</div>
+</body>
+</html>

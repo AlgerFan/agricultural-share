@@ -1,0 +1,102 @@
+body,html{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.list-title{
+	width: 94%;
+	height: 60px;
+	line-height: 60px;
+	padding:0 3%;
+	z-index: 7;
+	font-size: 17px;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 7px 5px -8px #5E5E5E;
+}
+.Icon{
+	width: 30px;
+	height: 50px;
+	float: right;
+	text-align: center;
+	animation:myfirst 4s;
+	animation-iteration-count:infinite;
+}
+@keyframes myfirst{
+	0%{opacity: 1;}
+	50%{opacity: 0;}
+	100%{opacity: 1;}
+}
+.ipt{
+	width: 77%;
+	height: 25px;
+	margin-top: 67px;
+	border-radius: 5px;
+	margin-left: 10%;
+	background-color: #fafafa;
+	border: 0;
+	outline: none;
+	padding-left: 3%;
+}
+input::placeholder{
+	text-align: center;
+	color: gray;
+	letter-spacing: 5px;
+}
+.allneed{
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+}
+.allneed>div{
+	width: 100%;
+	height: 80px;
+	background-color: white;
+	border-top: solid 1px #f3f3f3;
+	position: relative;
+}
+.need-kind{
+	width: 60%;
+	height: 30px;
+	line-height: 40px;
+	padding-left: 5%;
+	font-size: 14px;
+}
+.need-address{
+	width: 60%;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 5%;
+	font-size: 12px;
+	color: gray;
+}
+.need-phone{
+	width: auto;
+	height: 20px;
+	line-height: 20px;
+	border: solid 1px red;
+	border-radius: 5px;
+	color: red;
+	font-size: 12px;
+	position: absolute;
+	right: 12px;
+	top: 12px;
+}
+.goods-phone {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	position: absolute;
+	right: 15px;
+	bottom: 35px;
+	font-size: 19px;
+	color: red;
+	border: solid 1px red;
+	border-radius: 35px;
+}
