@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.wlgzs.agricultural_share.base.BaseController;
+import org.wlgzs.agricultural_share.entity.Category;
 import org.wlgzs.agricultural_share.entity.Headline;
 import org.wlgzs.agricultural_share.entity.Message;
 import org.wlgzs.agricultural_share.entity.User;
@@ -28,13 +29,16 @@ public class MessageController extends BaseController {
      * @Date 2018/7/31 21:11
      * @Param [message, request, response]
      **/
-    @RequestMapping
-    public void createMessage(Message message, HttpServletRequest request, List<MultipartFile> files, HttpServletResponse response) {
-        boolean b = messageService.addMessage(request, message, files);
-        try {
-            response.sendRedirect("/message/person");
-        } catch (IOException e) {
-            e.printStackTrace();
+    @RequestMapping("/createMessage")
+    public ModelAndView createMessage(Model model,Message message, HttpServletRequest request, List<MultipartFile> files) {
+        if(messageService.addMessage(request, message, files)) {
+            return new ModelAndView("redirect:/message/person");
+        } else {
+            Page<Category> pages = categoryService.getCategoryList(0, 100);
+            List<Category> categories = pages.getContent();
+            model.addAttribute("categories", categories);//查询的当前页的集合
+            model.addAttribute("msg","发布失败");
+            return new ModelAndView("own");
         }
     }
     /**
@@ -43,16 +47,12 @@ public class MessageController extends BaseController {
      * @Param [message, request, response]
      **/
     @RequestMapping("/createDemand")
-    public void createDemand(Message message, HttpServletRequest request, HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        if (user!=null) {
-            messageService.createDemand(request, message,user.getUserId());
-        }
-        try {
-            response.sendRedirect("/message/person");
-        } catch (IOException e) {
-            e.printStackTrace();
+    public ModelAndView createDemand(Model model,Message message, HttpServletRequest request) {
+        if(messageService.createDemand(request, message)) {
+            return new ModelAndView("redirect:/message/person");
+        } else {
+            model.addAttribute("msg","发布失败");
+            return  new ModelAndView("issue");
         }
     }
     /**

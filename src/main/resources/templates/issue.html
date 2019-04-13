@@ -28,47 +28,50 @@
 				<img th:src="@{/images/issuetop.jpg}">
 			</div>
 			<div class="top-issue">
-                <form action="/message/createDemand" method="post">
-				<div class="issue-title">
-					<span>-- 发布需求，大家主动来帮您 --</span>
-				</div>
-				<div class="issue-find" onclick="addblock()">
-					<div class="find">我要找：</div>
-					<div class="findtype">
-						<span class="typetext">请选择需要的服务类型</span>
-						<span class="typefont  fa fa-caret-up"></span>
-                        <input name="sonType" class="sonType" style="display:none" >
-						<input name="parentType" value="用户需求" style="display: none" >
+                <form th:action="@{/message/createDemand}" method="post">
+					<div class="issue-title">
+						<span>-- 发布需求，大家主动来帮您 --</span>
+					</div>
+					<div th:if="${msg!=null}" class="issue-title" style="margin: 0 0;">
+						<span th:text="${msg}" style="color: red"></span>
+					</div>
+					<div class="issue-find" onclick="addblock()">
+						<div class="find">我要找：</div>
+						<div class="findtype">
+							<span class="typetext">请选择需要的服务类型</span>
+							<span class="typefont  fa fa-caret-up"></span>
+							<input name="sonType" class="sonType" style="display:none" >
+							<input name="parentType" value="用户需求" style="display: none" >
+							<div class="clear"></div>
+						</div>
 						<div class="clear"></div>
 					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="issue-phone">
-					<div class="phone">手机号：</div>
-					<input name="phone" class="phonenum" type="text" placeholder="请输入手机号" maxlength="11" />
-				</div>
-				<div class="issue-phone">
-					<div class="phone">名&nbsp;&nbsp;称：</div>
-					<input name="title" class="phonenum" type="text" placeholder="请输入需要服务的名称" maxlength="11" />
-				</div>
-				<div class="issue-phone">
-					<div class="phone">详&nbsp;&nbsp;情：</div>
-					<input name="content" class="phonenum" type="text" placeholder="请输入服务详细信息"  />
-				</div>
-				<div class="issue-site">
-					<div class="site-text">地&nbsp;&nbsp;&nbsp;址：</div>
-					<div class="site" data-toggle="distpicker">
-						<select class="site-s site-s-z" onclick="siteone()" data-province="-- 选择省 ---"></select>
-						<select class="site-s site-s-o " style="display: none;" onclick="sitetwo()" data-city="-- 选择市 ---"></select>
-						<select class="site-s site-s-t" style="display: none;" onclick="sitethree()" data-district="-- 选择区 ---"></select>
-						<input class="site-input" style="display: none;" placeholder="输入详细地址" />
-                        <input name="address" class="addresses" style="display: none" >
+					<div class="issue-phone">
+						<div class="phone">手机号：</div>
+						<input name="phone" class="phonenum" type="text" placeholder="请输入手机号" maxlength="11" />
 					</div>
-					<div class="clear"></div>
-				</div>
-                    <input type="submit" style="display: none" class="sub">
+					<div class="issue-phone">
+						<div class="phone">名&nbsp;&nbsp;称：</div>
+						<input name="title" class="phonenum" type="text" placeholder="请输入需要服务的名称" maxlength="11" />
+					</div>
+					<div class="issue-phone">
+						<div class="phone">详&nbsp;&nbsp;情：</div>
+						<input name="content" class="phonenum" type="text" placeholder="请输入服务详细信息"  />
+					</div>
+					<div class="issue-site">
+						<div class="site-text">地&nbsp;&nbsp;&nbsp;址：</div>
+						<div class="site" data-toggle="distpicker">
+							<select class="site-s site-s-z" onclick="siteone()" data-province="-- 选择省 ---"></select>
+							<select class="site-s site-s-o " style="display: none;" onclick="sitetwo()" data-city="-- 选择市 ---"></select>
+							<select class="site-s site-s-t" style="display: none;" onclick="sitethree()" data-district="-- 选择区 ---"></select>
+							<input class="site-input" style="display: none;" placeholder="输入详细地址" />
+							<input name="address" class="addresses" style="display: none" >
+						</div>
+						<div class="clear"></div>
+					</div>
+					<input type="submit" style="display: none" class="sub">
                 </form>
-				<div class="issue-up" >发送需求</div>
+				<div class="issue-up" >需求发布</div>
 				<!--<div class="root">
 					<div class="mainright">
 						<ul>

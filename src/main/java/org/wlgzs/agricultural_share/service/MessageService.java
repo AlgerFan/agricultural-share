@@ -73,7 +73,7 @@ public interface MessageService {
      * @Date 2018/7/31 21:11
      * @Param [message, request, response]
      **/
-    void createDemand(HttpServletRequest request, Message message, long userId);
+    boolean createDemand(HttpServletRequest request, Message message);
     /**
      * @Description 根据分类查找需求
      * @Date 2018/7/31 18:04

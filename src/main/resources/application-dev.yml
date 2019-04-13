@@ -4,8 +4,6 @@ server:
 logging:
   level:
     org.wlgzs.agricultural_share.dao: DEBUG
-#logging:
-#  config: classpath:logback-spring.xml
 
 spring:
   datasource:

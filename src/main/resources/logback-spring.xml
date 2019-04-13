@@ -23,10 +23,10 @@
             </pattern>
         </encoder>
         <!--滚动策略-->
-        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-            <!--&lt;!&ndash;路径&ndash;&gt;-->
-            <!--<fileNamePattern>/var/log/tomcat/sell/info.%d.log</fileNamePattern>-->
-        <!--</rollingPolicy>-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>/projectLog/sell/info.%d.log</fileNamePattern>
+        </rollingPolicy>
     </appender>
 
 
@@ -40,10 +40,10 @@
             </pattern>
         </encoder>
         <!--滚动策略-->
-        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-            <!--&lt;!&ndash;路径&ndash;&gt;-->
-            <!--<fileNamePattern>/var/log/tomcat/sell/error.%d.log</fileNamePattern>-->
-        <!--</rollingPolicy>-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>/projectLog/sell/error.%d.log</fileNamePattern>
+        </rollingPolicy>
     </appender>
 
     <root level="info">

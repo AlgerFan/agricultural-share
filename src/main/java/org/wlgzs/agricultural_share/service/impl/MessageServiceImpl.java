@@ -28,15 +28,18 @@ import java.util.List;
 @Log4j2
 public class MessageServiceImpl extends BaseController implements MessageService {
 
-    UploadUtil uploadUtil = new UploadUtil();
+    private UploadUtil uploadUtil = new UploadUtil();
 
     @Override
     public boolean addMessage(HttpServletRequest request, Message message, List<MultipartFile> files) {
         User user = (User) request.getSession().getAttribute("user");
-        final int wordsMax = 500, wordsMin = 10, titleMax = 50;
-        if (message.getTitle() == null || message.getTitle().length() > titleMax || message.getContent() == null
-                || message.getContent().length() > wordsMax
-                || message.getAddress() == null || message.getPhone() == null || user == null)
+        final int wordsMax = 500, titleMax = 50;
+        log.info("农资发布："+message);
+        if (user == null || message.getPhone() == null || message.getPhone().equals("") ||
+                message.getAddress() == null || message.getAddress().equals("") ||
+                message.getSonType() ==null || message.getSonType().equals("") ||
+                message.getTitle() == null || message.getTitle().equals("") || message.getTitle().length() > titleMax ||
+                message.getContent() == null || message.getContent().equals("") || message.getContent().length() > wordsMax)
             return false;
         Category category = categoryRepository.findByTwoCategory(message.getSonType());
         message.setParentType(category.getParentName());
@@ -44,6 +47,7 @@ public class MessageServiceImpl extends BaseController implements MessageService
         message.setBuildDate(new Date());
         message.setCollections(1);
         Message saveMessage = messageResponsitory.save(message);
+        log.info("农资发布："+saveMessage);
         return !message.getParentType().equals(needType) && savePicture(files, saveMessage);
     }
 
@@ -133,15 +137,27 @@ public class MessageServiceImpl extends BaseController implements MessageService
     }
 
     @Override
-    public void createDemand(HttpServletRequest request, Message message, long userId) {
-        message.setUserId(userId);
+    public boolean createDemand(HttpServletRequest request, Message message) {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        if(user == null || message.getSonType()==null || message.getSonType().equals("") ||
+                message.getPhone()==null || message.getPhone().equals("") ||
+                message.getTitle()==null || message.getTitle().equals("") ||
+                message.getContent()==null || message.getContent().equals("") ||
+                message.getAddress()==null || message.getAddress().equals("")) {
+            return false;
+        }
+        message.setUserId(user.getUserId());
         message.setBuildDate(new Date());
+        log.info("新增需求："+message);
         messageResponsitory.save(message);
-        User user = userRepository.findById(userId);
-        user.setRecommended(1);
-        userRepository.saveAndFlush(user);
+        //修改推荐状态
+        User user1 = userRepository.findById(user.getUserId());
+        user1.setRecommended(1);
+        userRepository.saveAndFlush(user1);
         session.setMaxInactiveInterval(60 * 20);
-        session.setAttribute("user", user);
+        session.setAttribute("user", user1);
+        return true;
     }
 
     @Override
