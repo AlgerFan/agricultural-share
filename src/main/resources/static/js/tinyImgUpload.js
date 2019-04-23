@@ -33,6 +33,7 @@ function tinyImgUpload(ele, options) {
     addBtn.addEventListener('click',function () {
         document.querySelector('#img-file-input').value = null;
         document.querySelector('#img-file-input').click();
+        addBtn.style.display='none';
         return false;
     },false)
 
@@ -104,6 +105,7 @@ function tinyImgUpload(ele, options) {
                 ele.files.splice(index, 1);
             }
             console.log('4',ele.files);
+            addBtn.style.display='block';
         }
     }
     ele.addEventListener('click', removeImg, false);
