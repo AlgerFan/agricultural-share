@@ -146,11 +146,10 @@
             </div>
         </div>
         <div class="recommend">
-            <div th:each="messa : ${messages}">
+            <div th:each="messa : ${messages}" th:if="${messa.mainPictureUrl != null}">
                 <!--<a th:href="@{/browse(messageId=${messa.messageId})}">-->
                     <div class="goods-img">
-                        <img th:src="${'/Path'+messa.mainPictureUrl}" th:if="${messa.mainPictureUrl != null}"/>
-                        <span th:if="${messa.mainPictureUrl == null}">我的<br/>需求</span>
+                        <img th:src="${'/Path'+messa.mainPictureUrl}" />
                     </div>
                     <div class="goods-right">
                         <div class="goods-title" th:text="${messa.title}">中小型小麦收割机</div>
@@ -161,6 +160,19 @@
                         </div>
                     </div>
                     <a th:href="'tel:'+${messa.phone}"><div class="goods-phone"><i class="fa fa-phone"></i></div></a>
+                <!--</a>-->
+            </div>
+            <div th:each="messa : ${messages}" th:if="${messa.mainPictureUrl == null}">
+                <!--<a th:href="@{/browse(messageId=${messa.messageId})}">-->
+                <div class="goods-right2">
+                    <div class="goods-title" th:text="${messa.title}">中小型小麦收割机</div>
+                    <div class="goods-keywords" th:text="${messa.address}">濮阳市台前县杨井村</div>
+                    <div class="goods-keywords" th:text="${messa.phone}">182****0281</div>
+                    <div class="goods-money">
+                        <span class="goods-time" th:text="${messa.buildDate}">07-20</span>
+                    </div>
+                </div>
+                <a th:href="'tel:'+${messa.phone}"><div class="goods-phone"><i class="fa fa-phone"></i></div></a>
                 <!--</a>-->
             </div>
         </div>

@@ -84,7 +84,7 @@ input::placeholder{
 	width: 95%-2px;
 	height: 30px;
 	padding-left: 5%;
-	border: solid 1px #F0F0F0;
+	border: solid 1px #e4e4e4;
 	font-size: 17px;
 }
 .allplants2{
@@ -93,6 +93,6 @@ input::placeholder{
 	float: left;
 	text-align: center;
 	font-size: 14px;
-	border-right: solid 1px #F0F0F0;
-	border-bottom: solid 1px #F0F0F0;
+	border-right: solid 1px #e4e4e4;
+	border-bottom: solid 1px #e4e4e4;
 }

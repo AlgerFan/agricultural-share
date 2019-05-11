@@ -115,4 +115,5 @@ a{
     letter-spacing: 15px;
     color: peru;
     line-height: 40px;
+    display: block;
 }
