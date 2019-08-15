@@ -27,7 +27,7 @@
     <div th:each="message : ${messages}">
         <a th:href="@{/browse(messageId=${message.messageId})}">
             <div class="goods-img">
-                <img th:src="${'/Path'+message.mainPictureUrl}" th:if="${message.mainPictureUrl != null}"/>
+                <img th:src="${'/File/agricultural_share'+message.mainPictureUrl}" th:if="${message.mainPictureUrl != null}"/>
                 <span th:if="${message.mainPictureUrl == null}">我的<br/>需求</span>
             </div>
             <div class="goods-right">

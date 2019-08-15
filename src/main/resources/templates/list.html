@@ -32,7 +32,7 @@
 		<div th:each="message : ${messages}" th:if="${message.mainPictureUrl != null}">
             <a th:href="@{/browse(messageId=${message.messageId})}">
                 <div class="goods-img">
-                    <img th:src="'/Path'+${message.mainPictureUrl}" />
+                    <img th:src="'/File/agricultural_share'+${message.mainPictureUrl}" />
                 </div>
                 <div class="goods-right">
                     <div class="goods-title" th:text="${message.title}">中小型小麦收割机</div>

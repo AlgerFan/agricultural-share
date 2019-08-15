@@ -25,7 +25,7 @@
 		<div th:each="collect : ${messages}" th:if="${collect!=null}">
 			<a th:href="@{/browse(messageId=${collect.messageId})}">
 				<div class="all-img">
-					<img th:src="'/Path'+${collect.mainPictureUrl}" />
+					<img th:src="'/File/agricultural_share'+${collect.mainPictureUrl}" />
 				</div>
 			</a>
 			<div class="collectid" style="display: none;"></div>

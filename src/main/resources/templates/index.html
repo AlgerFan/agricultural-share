@@ -119,7 +119,7 @@
             <div th:each="message : ${messagesTwo}" th:if="${message.price != null}">
                 <a th:href="@{/browse(messageId=${message.messageId})}">
                     <div class="goods-img">
-                        <img th:src="${'/Path'+message.mainPictureUrl}"/>
+                        <img th:src="${'/File/agricultural_share'+message.mainPictureUrl}"/>
                     </div>
                     <div class="goods-right">
                         <div class="goods-title" th:text="${message.title}">美丽家园土地</div>
@@ -149,7 +149,7 @@
             <div th:each="messa : ${messages}" th:if="${messa.mainPictureUrl != null}">
                 <!--<a th:href="@{/browse(messageId=${messa.messageId})}">-->
                     <div class="goods-img">
-                        <img th:src="${'/Path'+messa.mainPictureUrl}" />
+                        <img th:src="${'/File/agricultural_share'+messa.mainPictureUrl}" />
                     </div>
                     <div class="goods-right">
                         <div class="goods-title" th:text="${messa.title}">中小型小麦收割机</div>
@@ -186,10 +186,10 @@
             </div>
         </div>
         <div class="bgm" th:if="${session.user != null}">
-            <img th:src="'/Path'+${session.user.userAvatar}" alt=""/>
+            <img th:src="'/File/agricultural_share'+${session.user.userAvatar}" alt=""/>
             <div class="user-information">
                 <div class="user-img">
-                    <img th:src="'/Path'+${session.user.userAvatar}" alt=""/>
+                    <img th:src="'/File/agricultural_share'+${session.user.userAvatar}" alt=""/>
                 </div>
                 <div class="user-name" th:text="${session.user.userName}">
                     name

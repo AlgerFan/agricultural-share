@@ -29,7 +29,7 @@
 							<span>头像</span>
 						</div>
 						<div class="all-photo-right">
-							<img th:src="'/Path'+${session.user.getUserAvatar()}" id="imgshow" />
+							<img th:src="'/File/agricultural_share'+${session.user.getUserAvatar()}" id="imgshow" />
 						</div>
 					</div>
 					<input id="fileds" style="display: none;" name="file" type="file" accept="image/*" value="上传图片" />

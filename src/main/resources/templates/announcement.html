@@ -27,7 +27,7 @@
     <div th:each="message : ${messages}" th:if="${message.userId == session.user.userId}">
         <a th:href="@{/browse(messageId=${message.messageId})}" th:if="${message.price != null}">
             <div class="goods-img">
-                <img th:src="${'/Path'+message.mainPictureUrl}" th:if="${message.mainPictureUrl != null}"/>
+                <img th:src="${'/File/agricultural_share'+message.mainPictureUrl}" th:if="${message.mainPictureUrl != null}"/>
                 <span th:if="${message.mainPictureUrl == null}">我的<br/>需求</span>
             </div>
             <div class="goods-right">
@@ -42,7 +42,7 @@
         </a>
         <div class="goods-phone"><i class="fa fa-phone"></i></div>
         <div class="goods-img" th:if="${message.price == null}">
-            <img th:src="${'/Path'+message.mainPictureUrl}" th:if="${message.mainPictureUrl != null}"/>
+            <img th:src="${'/File/agricultural_share'+message.mainPictureUrl}" th:if="${message.mainPictureUrl != null}"/>
             <span th:if="${message.mainPictureUrl == null}">我的<br/>需求</span>
         </div>
         <div class="goods-right" th:if="${message.price == null}">

@@ -23,7 +23,7 @@
 	<div class="allcoll" >
         <div class="coll" th:each="messages : ${messages}">
             <a class="goods-img" th:href="@{'/browse?messageId=' + ${messages.messageId}}">
-                <img th:src= "@{'/Path' + ${messages.mainPictureUrl}}" />
+                <img th:src= "@{'/File/agricultural_share' + ${messages.mainPictureUrl}}" />
             </a>
             <div class="goods-money">
                 <span class="allle" th:text="${messages.title}">优美黄昏优美黄昏优美黄昏优美黄昏</span>
