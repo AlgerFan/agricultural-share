@@ -6,6 +6,8 @@ logging:
     org.wlgzs.agricultural_share.dao: DEBUG
 
 spring:
+  jmx:
+    enabled: false
   datasource:
     name: agricultural_share
     type: com.alibaba.druid.pool.DruidDataSource
